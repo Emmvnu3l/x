@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión Cerrada</title>
+    <th:block layout:fragment="css-extra">
+        <style>
+            /* Estilos específicos para la tarjeta de mensaje de sesión cerrada */
+            .logout-card {
+                background-color: #ffffff;
+                padding: 40px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                margin: auto; /* Para centrar la tarjeta */
+            }
+            .logout-card h2 {
+                color: #007bff;
+                margin-bottom: 20px;
+            }
+            .logout-card p {
+                font-size: 1.1em;
+                color: #555;
+                margin-bottom: 30px;
+            }
+            .logout-card .btn {
+                font-size: 1em;
+                padding: 10px 25px;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="logout-card">
+            <h2>¡Sesión Cerrada!</h2>
+            <p>Has cerrado tu sesión de forma segura. Gracias por usar Sistema PIE.</p>
+            <a th:href="@{/login}" class="btn btn-primary">Iniciar Sesión de Nuevo</a>
+        </div>
+    </div>
+</body>
+</html>
