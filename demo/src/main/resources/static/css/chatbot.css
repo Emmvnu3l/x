@@ -1,0 +1,85 @@
+/* ===================================== */
+/* ========= Chatbot Page Specific Styles (Original Inline CSS) ============ */
+/* ===================================== */
+
+/* Eliminar todos los estilos de 'body' y 'navbar-custom' porque ya están en layout_registrado.html */
+/* Mantener solo los estilos específicos del chatbot-container y sus elementos internos */
+
+.chatbot-container {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    max-width: 900px;
+    width: 95%; /* Ajusta el ancho para que se vea bien dentro del layout */
+    margin: auto; /* Centrar dentro del fragmento */
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh; /* Dale una altura mínima para que ocupe espacio */
+    flex-grow: 1; /* Para que el contenedor del chatbot ocupe el espacio restante dentro del main */
+}
+
+.chatbot-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+}
+.chatbot-header h2 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+.chatbot-header p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.chat-messages {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 20px;
+    min-height: 300px;
+    max-height: 400px; /* Ajusta según sea necesario */
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Para que ocupe el espacio disponible en el contenedor del chatbot */
+}
+.chat-message {
+    background-color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.chat-message.bot {
+    align-self: flex-start;
+    background-color: #e6f7ff;
+}
+.chat-message.user {
+    align-self: flex-end;
+    background-color: #d1e7dd;
+    margin-left: auto;
+}
+.chat-message p {
+    margin: 0;
+    line-height: 1.4;
+}
+.chat-input-area {
+    display: flex;
+    margin-top: auto; /* Empuja el área de entrada al final */
+}
+.chat-input-area .form-control {
+    flex-grow: 1;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.chat-input-area .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

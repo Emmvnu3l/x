@@ -1,120 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout_registrado}"> <head>
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos de Apoyo - Sistema PIE</title>
 
     <th:block layout:fragment="css-extra">
-        <style>
-            /* Estilos para el contenedor principal de la página de videos */
-            .videos-page-container {
-                background-color: #ffffff;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-                padding: 30px;
-                max-width: 1000px; /* Ancho ajustable para la galería de videos */
-                width: 95%;
-                margin: 20px auto;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .videos-header {
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            .videos-header h1 {
-                color: #007bff;
-                font-size: 2.5em;
-                margin-bottom: 15px;
-                font-weight: bold;
-            }
-
-            .videos-header p {
-                color: #555;
-                font-size: 1.1em;
-                line-height: 1.6;
-                max-width: 700px;
-                margin: 0 auto;
-            }
-
-            .video-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 columnas en pantallas grandes, 1 en pequeñas */
-                gap: 25px; /* Espacio entre los videos */
-                justify-content: center; /* Centrar los ítems si no llenan el grid */
-            }
-
-            .video-item {
-                border: 1px solid #e0e0e0;
-                border-radius: 8px;
-                overflow: hidden; /* Para que el borde redondeado funcione con la imagen/video */
-                background-color: #ffffff;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-                display: flex; /* Para flexbox interno */
-                flex-direction: column; /* Contenido apilado */
-            }
-
-            .video-item .video-responsive {
-                position: relative;
-                padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-                height: 0;
-                overflow: hidden;
-            }
-
-            .video-item .video-responsive iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border: 0;
-            }
-
-            .video-item .item-body {
-                padding: 15px;
-                flex-grow: 1; /* Para que el contenido ocupe el espacio restante */
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between; /* Para empujar el botón hacia abajo si las descripciones varían de tamaño */
-            }
-
-            .video-item h4 {
-                font-size: 1.2em;
-                color: #007bff;
-                margin-bottom: 8px;
-            }
-
-            .video-item p {
-                font-size: 0.95em;
-                color: #666;
-                line-height: 1.5;
-                margin-bottom: 15px; /* Espacio antes del botón */
-            }
-
-            .video-item .btn {
-                align-self: flex-start; /* Alinea el botón a la izquierda */
-            }
-
-            /* Media queries para responsividad */
-            @media (max-width: 768px) {
-                .videos-header h1 {
-                    font-size: 2em;
-                }
-                .video-grid {
-                    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
-                }
-                .videos-page-container {
-                    padding: 20px;
-                    margin: 15px auto;
-                }
-            }
-        </style>
-    </th:block>
+        <link rel="stylesheet" th:href="@{/css/videos_apoyo_style.css}">
+        </th:block>
 </head>
 <body>
 
@@ -170,7 +65,7 @@
 
                 <div class="video-item">
                     <div class="video-responsive">
-                        <iframe src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_4"
                                 title="Técnicas de Relajación para Estudiantes" frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
@@ -178,7 +73,7 @@
                     <div class="item-body">
                         <h4>Técnicas de Relajación para Estudiantes</h4>
                         <p>Descubre ejercicios sencillos de relajación para aplicar en momentos de estudio o antes de exámenes.</p>
-                        <a href="https://www.youtube.com/watch?v=**XXXXXXXXXXX" target="_blank" class="btn btn-sm btn-outline-primary">Ver en YouTube</a>
+                        <a href="https://www.youtube.com/watch?v=VIDEO_ID_4" target="_blank" class="btn btn-sm btn-outline-primary">Ver en YouTube</a>
                     </div>
                 </div>
 
@@ -187,7 +82,7 @@
     </div>
 
     <th:block layout:fragment="js-extra">
-        </th:block>
+    </th:block>
 
 </body>
 </html>

@@ -1,17 +1,26 @@
+/* ===================================== */
+/* ========= Profile Page Specific Styles =========== */
+/* ===================================== */
+
 /* Reset básico y fuente si no están en el layout principal */
+/* Se asume que 'body' ya tiene 'font-family' y 'background-color' del layout.
+   Si no es así, descomenta y ajusta según sea necesario. */
+/*
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa; /* Color de fondo del body, por si el layout no lo tiene */
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    background-color: #f8f9fa; 
 }
+*/
 
 /* Contenedor principal del perfil */
 .profile-page-container {
     background-color: #ffffff; /* Fondo blanco para el contenedor principal */
-    border-radius: 15px; /* Bordes más redondeados como en el mockup */
+    border-radius: 12px; /* Ligeramente más redondeado para armonizar */
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
-    margin-top: 5px; /* Margen superior para separarlo del navbar/header del layout */
-    max-width: 960px; /* Ajustado para un diseño de 3 columnas más espacioso */
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada y suave */
+    margin-top: -20px; /* Margen superior para separarlo del navbar/header del layout */
+    margin-bottom: 25px; /* Margen inferior para que no quede pegado al footer */
+    max-width: 1000px; /* Ajustado para un diseño de 3 columnas más espacioso */
     width: 95%; /* Asegura responsividad */
     margin-left: auto; /* Centrar */
     margin-right: auto; /* Centrar */
@@ -25,22 +34,21 @@ body {
     text-align: center;
     margin-bottom: 40px; /* Más espacio abajo */
     padding-bottom: 20px;
-    border-bottom: 2px solid #aed6f1; /* Línea azul clara más visible */
+    border-bottom: 2px solid #e9ecef; /* Línea suave, concordando con otros bordes */
     width: 100%;
 }
 
 .profile-header h1 {
-    color: #2c3e50;
-    font-size: 2.8em;
+    color: #343a40; /* Color de texto principal */
+    font-size: 2.5em; /* Un poco más grande pero no excesivo */
     margin-bottom: 10px;
-    font-weight: 700;
-
+    font-weight: 700; /* Más audaz */
 }
 
 .profile-header p {
-    color: #666;
-    font-size: 1.1em;
-    line-height: 1.6;
+    color: #6c757d; /* Gris más oscuro para el texto secundario */
+    font-size: 1em; /* Tamaño estándar */
+    line-height: 1.5;
 }
 
 /* Sección de Avatar y Nombre del usuario */
@@ -54,17 +62,17 @@ body {
 }
 
 .profile-avatar {
-    width: 160px; /* Un poco más grande para el avatar */
-    height: 160px;
+    width: 150px; /* Tamaño consistente */
+    height: 150px;
     border-radius: 50%;
-    background-color: #aed6f1; /* Fondo azul claro del mockup original */
+    background-color: #e3f2fd; /* Azul claro pastel como en el chatbot bot message */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5.5em; /* Icono o inicial más grande */
-    color: #2c3e50; /* Color oscuro para la inicial */
-    border: 6px solid #ffffff; /* Borde blanco que da profundidad */
-    box-shadow: 0 0 0 3px #007bff; /* Borde exterior azul como en el mockup */
+    font-size: 5em; /* Icono o inicial */
+    color: #007bff; /* Color azul primario para la inicial */
+    border: 5px solid #ffffff; /* Borde blanco que da profundidad */
+    box-shadow: 0 0 0 3px #007bff; /* Borde exterior azul primario */
     overflow: hidden; /* Asegura que la imagen no se salga del círculo */
     margin-bottom: 25px; /* Espacio debajo del avatar en modo columna */
     flex-shrink: 0; /* Evita que el avatar se encoja */
@@ -77,15 +85,15 @@ body {
 }
 
 .profile-name {
-    font-size: 2em; /* Nombre más grande */
+    font-size: 2.1em; /* Nombre más grande */
     font-weight: bold;
-    color: #34495e; /* Color oscuro */
+    color: #343a40; /* Color de texto principal */
     margin-bottom: 8px;
 }
 
 .profile-role {
-    font-size: 1.2em;
-    color: #007bff; /* Color de énfasis */
+    font-size: 1.1em;
+    color: #007bff; /* Color de énfasis (azul primario) */
     font-weight: 600;
     margin-bottom: 15px;
 }
@@ -94,74 +102,74 @@ body {
 .profile-sections-wrapper {
     display: flex;
     flex-wrap: wrap; /* Permite que las columnas se apilen */
-    gap: 25px; /* Espacio entre las secciones */
+    gap: 20px; /* Espacio entre las secciones, consistente con otros elementos */
     width: 100%;
     justify-content: center; /* Centrar las secciones cuando no llenan el ancho */
 }
 
 .profile-section {
     flex: 1; /* Permite que la sección crezca y ocupe espacio */
-    min-width: 280px; /* Ancho mínimo antes de apilarse */
+    min-width: 300px; /* Ancho mínimo antes de apilarse */
     border: 1px solid #e9ecef; /* Borde suave */
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 8px; /* Bordes redondeados, consistente con .chatbot-container */
     padding: 25px;
-    background-color: #f0f4f8; /* Fondo ligeramente azulado para las secciones */
+    background-color: #f8f9fa; /* Fondo gris muy claro para las secciones, similar al body general */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para las secciones */
 }
 
 .profile-section h3 {
-    font-size: 1.5em; /* Título de sección más grande */
-    color: #34495e; /* Color oscuro */
+    font-size: 1.4em; /* Título de sección */
+    color: #343a40; /* Color oscuro */
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #aed6f1; /* Línea de separación bajo el título */
+    border-bottom: 2px solid #007bff; /* Línea de separación azul primario bajo el título */
 }
 
 .info-group {
-    margin-bottom: 18px; /* Más espacio entre grupos de información */
+    margin-bottom: 15px; /* Espacio entre grupos de información */
 }
 
 .info-group label {
     font-weight: 600; /* Más negrita */
-    color: #555;
+    color: #495057; /* Gris un poco más oscuro */
     display: block;
-    margin-bottom: 6px; /* Más espacio entre label y valor */
-    font-size: 0.95em;
+    margin-bottom: 5px; /* Espacio entre label y valor */
+    font-size: 0.9em; /* Ligeramente más pequeño */
 }
 
 .info-group p {
     margin: 0;
-    color: #444;
-    font-size: 1.05em; /* Tamaño de fuente ligeramente más grande para el valor */
+    color: #343a40; /* Texto oscuro principal */
+    font-size: 1em; /* Tamaño de fuente estándar para el valor */
     word-wrap: break-word; /* Asegura que el texto largo se ajuste */
-    padding: 10px 15px; /* Más padding para los valores */
+    padding: 10px 12px; /* Padding para los valores */
     background-color: #ffffff; /* Fondo blanco para los valores */
-    border: 1px solid #dcdcdc; /* Borde suave */
-    border-radius: 6px; /* Bordes redondeados */
+    border: 1px solid #ced4da; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
 }
 
 /* Sección "Acerca de mí" (ocupa todo el ancho) */
 .about-me-section {
     width: 100%; /* Ocupa todo el ancho */
-    margin-top: 30px; /* Espacio superior */
+    margin-top: 20px; /* Espacio superior */
     border: 1px solid #e9ecef;
-    border-radius: 10px;
+    border-radius: 8px; /* Consistentemente redondeado */
     padding: 25px;
-    background-color: #f0f4f8;
+    background-color: #f8f9fa; /* Consistentemente fondo gris claro */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .about-me-section h3 {
-    font-size: 1.5em;
-    color: #34495e;
+    font-size: 1.4em;
+    color: #343a40;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #aed6f1;
+    border-bottom: 2px solid #007bff; /* Azul primario */
 }
 
 .about-me-section p {
-    color: #666;
-    line-height: 1.7; /* Mayor interlineado para mejor lectura */
+    color: #495057; /* Gris para el texto */
+    line-height: 1.6; /* Mayor interlineado para mejor lectura */
     font-size: 1em;
 }
 
@@ -176,30 +184,35 @@ body {
     color: #777;
     font-style: italic;
     font-size: 0.95em;
+    margin-bottom: 20px; /* Espacio debajo del párrafo */
 }
 
-/* Estilo para el botón de Contactar (este es el estilo personalizado) */
+/* Estilo para el botón de Contactar */
 .btn-contact-custom {
     background-color: #007bff; /* Azul primario de Bootstrap */
     color: white;
     border: none;
-    border-radius: 50px; /* Bordes más redondeados */
-    padding: 12px 30px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+    border-radius: 8px; /* Bordes consistentes */
+    padding: 10px 25px; /* Padding ajustado */
+    font-weight: 600; /* Un poco menos bold pero firme */
+    font-size: 1em; /* Tamaño estándar */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15); /* Sombra más sutil */
+    text-decoration: none; /* Asegura que no tenga subrayado si es un <a> */
+    display: inline-flex; /* Para alinear ícono y texto */
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-contact-custom:hover {
     background-color: #0056b3; /* Un azul más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Pequeño levantamiento */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px); /* Pequeño levantamiento */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn-contact-custom:active {
     transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-contact-custom i {
@@ -229,22 +242,24 @@ body {
         margin: 15px auto;
     }
     .profile-header h1 {
-        font-size: 2.2em;
+        font-size: 2em;
     }
     .profile-main-info {
         margin-bottom: 30px;
     }
     .profile-avatar {
-        width: 120px;
-        height: 120px;
-        font-size: 4em;
+        width: 100px; /* Un poco más pequeño en móviles */
+        height: 100px;
+        font-size: 3.5em;
         margin-bottom: 15px;
+        border: 4px solid #ffffff; /* Borde más pequeño */
+        box-shadow: 0 0 0 2px #007bff; /* Borde exterior más pequeño */
     }
     .profile-name {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
     .profile-role {
-        font-size: 1.1em;
+        font-size: 1em;
     }
     .profile-section {
         min-width: unset; /* Elimina el min-width para adaptarse mejor */
@@ -253,5 +268,15 @@ body {
     }
     .about-me-section {
         padding: 20px;
+    }
+    .info-group label {
+        font-size: 0.85em; /* Un poco más pequeño en móvil */
+    }
+    .info-group p {
+        font-size: 0.95em; /* Un poco más pequeño en móvil */
+    }
+    .btn-contact-custom {
+        padding: 10px 20px;
+        font-size: 0.95em;
     }
 }

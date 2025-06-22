@@ -4,116 +4,96 @@
       layout:decorate="~{layouts/layout_bot_registrado}"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Registrado - Sistema PIE</title>
-
-    <th:block layout:fragment="css-extra">
-        <style>
-            /* Eliminar todos los estilos de 'body' y 'navbar-custom' porque ya están en layout_registrado.html */
-            /* Mantener solo los estilos específicos del chatbot-container y sus elementos internos */
-
-            .chatbot-container {
-                background-color: #ffffff;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-                padding: 30px;
-                max-width: 900px;
-                width: 95%; /* Ajusta el ancho para que se vea bien dentro del layout */
-                margin: auto; /* Centrar dentro del fragmento */
-                display: flex;
-                flex-direction: column;
-                min-height: 60vh; /* Dale una altura mínima para que ocupe espacio */
-                flex-grow: 1; /* Para que el contenedor del chatbot ocupe el espacio restante dentro del main */
-            }
-
-            .chatbot-header {
-                margin-bottom: 25px;
-                padding-bottom: 15px;
-                border-bottom: 1px solid #e9ecef;
-                text-align: center;
-            }
-            .chatbot-header h2 {
-                font-weight: bold;
-                color: #333;
-                margin-bottom: 5px;
-            }
-            .chatbot-header p {
-                color: #666;
-                font-size: 0.9em;
-            }
-
-            .chat-messages {
-                background-color: #f1f1f1;
-                border-radius: 5px;
-                padding: 20px;
-                min-height: 300px;
-                max-height: 400px; /* Ajusta según sea necesario */
-                overflow-y: auto;
-                margin-bottom: 20px;
-                border: 1px solid #e0e0e0;
-                display: flex;
-                flex-direction: column;
-                flex-grow: 1; /* Para que ocupe el espacio disponible en el contenedor del chatbot */
-            }
-            .chat-message {
-                background-color: #ffffff;
-                padding: 10px 15px;
-                border-radius: 15px;
-                margin-bottom: 10px;
-                max-width: 80%;
-                box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            }
-            .chat-message.bot {
-                align-self: flex-start;
-                background-color: #e6f7ff;
-            }
-            .chat-message.user {
-                align-self: flex-end;
-                background-color: #d1e7dd;
-                margin-left: auto;
-            }
-            .chat-message p {
-                margin: 0;
-                line-height: 1.4;
-            }
-            .chat-input-area {
-                display: flex;
-                margin-top: auto; /* Empuja el área de entrada al final */
-            }
-            .chat-input-area .form-control {
-                flex-grow: 1;
-                border-top-right-radius: 0;
-                border-bottom-right-radius: 0;
-            }
-            .chat-input-area .btn {
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-        </style>
-    </th:block>
+    <title layout:title-pattern="$LAYOUT_TITLE - Chatbot Registrado"></title> <th:block layout:fragment="css-extra">
+        <link rel="stylesheet" th:href="@{/css/chatbot.css}"> </th:block>
 </head>
 <body>
 
-    <div layout:fragment="content">
+    <div layout:fragment="content" class="content-wrapper">
         <div class="chatbot-container">
             <div class="chatbot-header">
-                <h2>Nombre Chatbot</h2>
-                <p>¡Bienvenido! ¿En qué puedo ayudarte?</p>
+                <h2>Asistente Virtual</h2> <p>¡Bienvenido! Estoy aquí para ayudarte.</p>
             </div>
 
-            <div class="chat-messages d-flex flex-column">
+            <div class="chat-messages d-flex flex-column" id="chatMessages">
                 <div class="chat-message bot">
                     <p>¡Hola! Soy tu asistente virtual. Estoy listo para ayudarte con tus consultas.</p>
                 </div>
-            </div>
+                </div>
 
             <div class="chat-input-area">
-                <input type="text" class="form-control" placeholder="Escribe tu mensaje aquí..." > 
-                <a th:href="@{/chatbot/registeredr2}" class="btn btn-primary">Enviar</a> 
+                <input type="text" id="chatInput" class="form-control" placeholder="Escribe tu mensaje aquí..." onkeydown="handleEnter(event)"> 
+                <button id="sendButton" class="btn btn-primary">Enviar</button> 
             </div>
         </div>
+    </div>
 
-        </div>
+    <th:block layout:fragment="js-extra">
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const chatInput = document.getElementById('chatInput');
+                const sendButton = document.getElementById('sendButton');
+                const chatMessages = document.getElementById('chatMessages');
 
-    </body>
+                function sendMessage() {
+                    const messageText = chatInput.value.trim();
+                    if (messageText === '') return;
+
+                    // Añadir mensaje del usuario
+                    const userMessageDiv = document.createElement('div');
+                    userMessageDiv.classList.add('chat-message', 'user');
+                    userMessageDiv.innerHTML = `<p>${messageText}</p>`;
+                    chatMessages.appendChild(userMessageDiv);
+
+                    // Desplazar hacia abajo para ver el nuevo mensaje
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    // Limpiar el input inmediatamente
+                    chatInput.value = ''; 
+
+                    // Simular respuesta del bot (aquí iría tu lógica de integración con el chatbot real)
+                    setTimeout(() => {
+                        const botResponseDiv = document.createElement('div');
+                        botResponseDiv.classList.add('chat-message', 'bot');
+                        let botText = "Gracias por tu mensaje. Actualmente, mi conocimiento es limitado y solo puedo proporcionar respuestas a preguntas frecuentes. Para asistencia específica, por favor, agenda una cita con un especialista PIE.";
+                        
+                        // Ejemplo simple de lógica de respuesta basado en palabras clave
+                        const lowerCaseMessage = messageText.toLowerCase();
+                        if (lowerCaseMessage.includes("hola") || lowerCaseMessage.includes("saludos")) {
+                            botText = "¡Hola! ¿Cómo puedo ayudarte hoy en el Sistema PIE?";
+                        } else if (lowerCaseMessage.includes("agenda") || lowerCaseMessage.includes("cita")) {
+                            botText = "Puedes agendar una cita directamente desde la sección 'AGENDA' en el menú superior. ¿Necesitas más indicaciones?";
+                        } else if (lowerCaseMessage.includes("pie") || lowerCaseMessage.includes("programa de integración escolar")) {
+                            botText = "El Programa de Integración Escolar (PIE) está diseñado para apoyar a estudiantes con Necesidades Educativas Especiales (NEE). ¿Te gustaría saber más sobre cómo funciona?";
+                        } else if (lowerCaseMessage.includes("recursos") || lowerCaseMessage.includes("material de apoyo")) {
+                            botText = "En la sección 'RECURSOS DE APOYO' encontrarás material útil y guías. Explórala para ver si encuentras lo que buscas.";
+                        } else if (lowerCaseMessage.includes("equipo") || lowerCaseMessage.includes("especialistas")) {
+                            botText = "Puedes conocer a nuestro equipo de especialistas PIE en la sección 'EQUIPO PIE'. ¡Ellos están para ayudarte!";
+                        } else if (lowerCaseMessage.includes("preguntas frecuentes") || lowerCaseMessage.includes("faq")) {
+                            botText = "Visita nuestra sección de 'PREGUNTAS FRECUENTES' para encontrar respuestas a las dudas más comunes. Si no encuentras tu respuesta, no dudes en consultarnos.";
+                        } else if (lowerCaseMessage.includes("gracias") || lowerCaseMessage.includes("muchas gracias")) {
+                            botText = "De nada. Estoy aquí para servirte. ¡Que tengas un excelente día!";
+                        }
+                        
+                        botResponseDiv.innerHTML = `<p>${botText}</p>`;
+                        chatMessages.appendChild(botResponseDiv);
+                        chatMessages.scrollTop = chatMessages.scrollHeight; // Desplazar de nuevo después de la respuesta del bot
+                    }, 1000); // Retraso de 1 segundo para simular "pensamiento" del bot
+                }
+
+                // Event listener para el botón de enviar
+                sendButton.addEventListener('click', sendMessage);
+
+                // Event listener para la tecla Enter en el input
+                chatInput.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); // Evita el salto de línea por defecto
+                        sendMessage();
+                    }
+                });
+            });
+        </script>
+    </th:block>
+
+</body>
 </html>

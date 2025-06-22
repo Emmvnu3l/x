@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.entities.Usuario;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,37 +18,45 @@ import java.util.List;
 
 @Controller
 public class PerfilController {
+// En tu controlador
+@GetMapping("/perfil")
+public String verPerfil(Model model) {
+    // ... (lógica para obtener el Usuario logueado o el que quieres mostrar)
+    Usuario usuario = new Usuario(); // Crea o recupera tu objeto Usuario
+    // Rellena los datos del usuario (ej. desde un servicio o base de datos)
+    usuario.setNombre("Constanza");
+    usuario.setApellidoPaterno("Ossess");
+    usuario.setRol("ALUMNO"); // O "DOCENTE", "PSICOLOGO", etc.
+    usuario.setEmail("c.ossess@example.com");
+    usuario.setRut("12.345.678-9");
+    usuario.setFechaNacimiento(LocalDate.of(2005, 5, 15));
+    usuario.setTelefono("+56912345678");
+    usuario.setAcercaDeMi("Soy un estudiante entusiasta del programa PIE...");
+    // URL de la foto (¡ajusta la ruta según donde tengas tu imagen!)
+    usuario.setUrlFoto("/img/anakena_balbontin.jpg"); 
 
-    // ... (Mantén tus métodos @GetMapping("/perfil") y @GetMapping("/usuarios_pie")) ...
-    @GetMapping("/perfil")
-    public String mostrarPerfil(Model model) {
-        // Ejemplo de un usuario ALUMNO usando el Builder de Lombok
-        Usuario alumno = Usuario.builder()
-                .id(1L)
-                .nombre("Franco")
-                .apellidoPaterno("Alaman")
-                .apellidoMaterno("Soto Jonquera")
-                .rut("20.320.000-K")
-                .email("fsa.soto@portalpie.cl")
-                .fechaNacimiento(LocalDate.of(2010, 5, 21))
-                .telefono("+569 1234 5678")
-                .fechaRegistro(LocalDateTime.now())
-                .rol("ALUMNO")
-                .curso("2° Medio A")
-                .profesorJefe("Santiago I. Cabrera S.")
-                .asistencias("95%")
-                .semestreIngreso("Primer Semestre 2007")
-                .apoderadoNombre("Josefa Valentina Jonquera Sepulveda")
-                .apoderadoRut("14.150.000-9")
-                .apoderadoTelefono("+569 7674 4136")
-                .apoderadoEmail("jovalen@gmail.com")
-                .acercaDeMi("Apasionado por la tecnología y los videojuegos. Buscando siempre aprender algo nuevo.")
-                .urlFoto("/images/alumno_franco.jpg")
-                .build();
-        model.addAttribute("usuario", alumno);
-
-        return "usuarios/mi_perfil_alumno";
+    // Datos específicos de alumno (si aplica)
+    if ("ALUMNO".equals(usuario.getRol())) {
+        usuario.setCurso("2° Medio");
+        usuario.setProfesorJefe("María Rodríguez");
+        usuario.setAsistencias("95%");
+        usuario.setSemestreIngreso("primer semestre 2007");
+        // Datos de apoderado (si aplica)
+        usuario.setApoderadoNombre("Sofía Ossess");
+        usuario.setApoderadoRut("9.876.543-2");
+        usuario.setApoderadoTelefono("+56998765432");
+        usuario.setApoderadoEmail("sofia@example.com");
     }
+    // Datos específicos de especialista (si aplica)
+    if ("PSICOLOGO".equals(usuario.getRol())) {
+        usuario.setEspecialidad("Psicología Clínica");
+        usuario.setMatriculaProfesional("P-98765");
+        usuario.setAniosExperiencia(12);
+    }
+
+    model.addAttribute("usuario", usuario); // ¡Asegúrate de que el nombre aquí coincida con el HTML!
+    return "usuarios/mi_perfil_alumno";
+}
 
     @GetMapping("/usuarios_pie")
     public String mostrarEspecialistasPie(Model model) {

@@ -1,0 +1,146 @@
+/* ===================================== */
+/* ========= Base & General ============ */
+/* ===================================== */
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Previene scroll horizontal si algo se desborda en el BODY general */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente más moderna y legible */
+    color: #343a40; /* Texto principal en gris oscuro */
+    background-color: #f8f9fa; /* Fondo general de la página en gris muy claro */
+}
+
+main {
+    flex-grow: 1; /* Hace que el contenido principal ocupe el espacio restante */
+    padding-top: 20px; /* Un poco de padding superior para el contenido */
+    padding-bottom: 20px; /* Un poco de padding inferior para el contenido */
+}
+
+/* ===================================== */
+/* ============= Navbar ================ */
+/* ===================================== */
+.navbar {
+    background-color: #007bff  !important; /* Azul principal para la barra de navegación superior */
+    padding: 10px 0; /* Padding vertical para la barra */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para la barra superior */
+    margin-top: 0; /* Asegura que no tenga margen superior inesperado */
+}
+
+.navbar-brand .logo-img {
+    height: 50px; /* Ajusta la altura de tu logo */
+    width: auto;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* Texto blanco para los enlaces de la barra superior */
+    font-weight: 500; /* Ligeramente más grueso */
+    margin-left: 15px; /* Espacio entre enlaces */
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.75); /* Un blanco más translúcido al pasar el ratón */
+}
+
+/* ===================================== */
+/* ========= Secondary Nav ============= */
+/* ===================================== */
+.secondary-nav {
+    width: 100%;
+    background-color: #e9ecef; /* Gris claro para la sub-navegación */
+    padding: 12px 0; /* Un poco más de padding vertical */
+    box-shadow: 0 2px 4px rgba(0,0,0,.08); /* Sombra más pronunciada para la sub-navegación */
+    margin-bottom: 30px; /* Más espacio debajo de esta barra para separar del contenido */
+    text-align: left; /* Centrar los enlaces */
+    border-bottom: 1px solid #dee2e6; /* Borde inferior sutil */
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    /* CLAVE PARA LA LÍNEA ÚNICA Y SCROLL HORIZONTAL */
+    white-space: nowrap; /* Fuerza todo el contenido en una sola línea */
+    overflow-x: auto; /* Permite el scroll horizontal si el contenido desborda */
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
+}
+
+/* El contenedor flex dentro de secondary-nav */
+.secondary-nav .container {
+    display: flex;
+    justify-content: left;
+    /* padding-left/right opcionales si quieres un pequeño margen a los lados */
+    padding-left: 15px; 
+    padding-right: 15px;
+    /* No necesitamos flex-wrap aquí ya que el padre tiene white-space: nowrap */
+}
+
+
+.secondary-nav .nav-link {
+    font-weight: 600; /* Más peso para los enlaces de la sub-nav */
+    color: #343a40; /* Color de texto oscuro para los enlaces */
+    margin: 0 20px; /* Espacio entre enlaces */
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 15px; /* Un poco más de padding para hacerlos más prominentes */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Evita que los ítems se encojan en un contenedor flex */
+}
+
+.secondary-nav .nav-link:hover {
+    color: #0056b3; /* Azul oscuro al pasar el ratón */
+    background-color: #dee2e6; /* Gris medio al pasar el ratón */
+}
+
+.secondary-nav .nav-link.active {
+    color: #007bff; /* Azul principal para el enlace activo */
+    border-bottom: 3px solid #007bff; /* Borde inferior más fuerte para el activo */
+    background-color: #e2e6ea; /* Un gris ligeramente más oscuro para el fondo del activo */
+    padding-bottom: 5px; /* Ajusta padding para el borde inferior */
+}
+
+/* ===================================== */
+/* ============== Footer =============== */
+/* ===================================== */
+footer {
+    background-color: #e9ecef; /* Mismo gris claro que la sub-nav */
+    color: #555; /* Texto del footer en gris */
+    padding: 20px 0; /* Más padding para el footer */
+    border-top: 1px solid #dee2e6; /* Borde superior sutil */
+    font-size: 0.9em;
+}
+
+/* ===================================== */
+/* ========= Media Queries ============= */
+/* ===================================== */
+/* NOTA: Para forzar una sola línea, evitamos flex-direction: column en el .container */
+
+@media (max-width: 991px) { /* Ajustes para pantallas medianas (tablets) */
+    .secondary-nav .nav-link {
+        margin: 0 12px; /* Reducir el margen entre enlaces */
+        padding: 7px 14px; /* Ajustar padding */
+        font-size: 0.95em; /* Ligeramente más pequeño */
+    }
+}
+
+@media (max-width: 768px) { /* Ajustes para pantallas pequeñas (móviles) */
+    .navbar-brand .logo-img {
+        height: 40px; /* Logo un poco más pequeño en móviles */
+    }
+    .navbar-nav .nav-link {
+        margin-left: 0;
+        text-align: center;
+    }
+    main {
+        padding: 15px;
+    }
+    .secondary-nav {
+        margin-bottom: 20px;
+    }
+    .secondary-nav .nav-link {
+        margin: 0 8px; /* Margen más pequeño aún en pantallas muy chicas */
+        padding: 6px 10px;
+        font-size: 0.8em; /* Fuente más pequeña para que quepan y haya espacio para scroll */
+    }
+}
