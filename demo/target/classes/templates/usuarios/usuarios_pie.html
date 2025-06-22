@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialistas PIE - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <link rel="stylesheet" th:href="@{/css/especialistas.css}">
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="specialists-page-container">
+            <div class="specialists-header">
+                <h1>Nuestros Especialistas PIE</h1>
+                <p>Conoce al equipo de profesionales dedicados que te apoyan en tu camino.</p>
+            </div>
+
+            <div class="specialists-grid" th:if="${not #lists.isEmpty(especialistas)}">
+                <div class="specialist-card" th:each="especialista : ${especialistas}">
+                    <div class="specialist-avatar">
+                        <img th:if="${especialista.urlFoto != null and !especialista.urlFoto.isEmpty()}"
+                             th:src="@{${especialista.urlFoto}}"
+                             th:alt="${'Foto de ' + especialista.nombre + ' ' + especialista.apellidoPaterno}" />
+                        <span th:unless="${especialista.urlFoto != null and !especialista.urlFoto.isEmpty()}"
+                              th:text="${especialista.nombre != null and !especialista.nombre.isEmpty() ? T(java.lang.Character).toUpperCase(especialista.nombre.charAt(0)) : ''}"></span>
+                    </div>
+                    <p class="specialist-name" th:text="${especialista.nombre + ' ' + especialista.apellidoPaterno}"></p>
+                    <p class="specialist-specialty" th:text="${especialista.especialidad}"></p>
+                    <p class="specialist-description" th:text="${especialista.acercaDeMi != null and !especialista.acercaDeMi.isEmpty() ? especialista.acercaDeMi : 'Especialista dedicado a brindar apoyo y orientación en diversas áreas educativas y psicológicas.'}"></p>
+
+                    <div class="specialist-actions">
+                        <a th:href="@{'/perfil/' + ${especialista.id}}" class="btn btn-primary specialist-action-btn">Ver Perfil</a>
+                        <a th:href="@{'/contactar/' + ${especialista.id}}" class="btn btn-secondary specialist-action-btn">Contactar</a>
+                        <a th:href="@{'/agendar/' + ${especialista.id}}" class="btn btn-info specialist-action-btn">Agendar Cita</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="no-specialists-message" th:if="${#lists.isEmpty(especialistas)}">
+                <p>No hay especialistas disponibles en este momento. Por favor, inténtalo más tarde.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+    </th:block>
+
+</body>
+</html>

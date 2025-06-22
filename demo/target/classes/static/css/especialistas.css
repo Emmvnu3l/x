@@ -1,0 +1,206 @@
+/* Estilos generales para el contenedor de la página de especialistas */
+.specialists-page-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 0.01px;
+    max-width: 1200px; /* Ancho un poco más grande para las tarjetas */
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.specialists-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #aed6f1;
+}
+
+.specialists-header h1 {
+    color: #2c3e50;
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.specialists-header p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Estilos para la cuadrícula de tarjetas de especialistas */
+.specialists-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 25px; /* Espacio entre tarjetas */
+    padding: 10px;
+}
+
+/* Estilos para cada tarjeta de especialista */
+.specialist-card {
+    background-color: #f8f9fa; /* Fondo ligeramente gris para la tarjeta */
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave al pasar el ratón */
+    display: flex; /* Añadido para flexbox */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: space-between; /* Empuja el footer hacia abajo si el contenido es corto */
+}
+
+.specialist-card:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el avatar del especialista (con o sin imagen) */
+.specialist-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #d4e6f1; /* Azul claro para el avatar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+    color: #2c3e50;
+    border: 4px solid #ffffff; /* Borde blanco */
+    box-shadow: 0 0 0 2px #007bff; /* Borde exterior azul */
+    margin: 0 auto 15px auto; /* Centrar y margen inferior */
+    overflow: hidden; /* Muy importante para que la imagen se recorte en el círculo */
+}
+
+.specialist-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el círculo sin distorsionarse */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+.specialist-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 5px;
+}
+
+.specialist-specialty {
+    font-size: 1.1em;
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.specialist-description {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 75px; /* Altura fija para la descripción */
+    overflow: hidden; /* Oculta el texto que desborda */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita a 3 líneas */
+    line-clamp: 3; /* Propiedad estándar para compatibilidad */
+    -webkit-box-orient: vertical;
+}
+
+/* Contenedor de los botones de acción */
+.specialist-actions {
+    margin-top: auto; /* Empuja los botones hacia la parte inferior de la tarjeta */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+    justify-content: center; /* Centra los botones */
+    gap: 8px; /* Espacio entre los botones */
+    padding-top: 15px; /* Pequeño margen superior para separar del texto */
+}
+
+/* Estilos para cada botón de acción */
+.specialist-action-btn {
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 25px; /* Bordes más redondeados */
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+/* Colores específicos para los botones de Bootstrap */
+.specialist-action-btn.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+.specialist-action-btn.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+    transform: translateY(-1px);
+}
+
+.specialist-action-btn.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+.specialist-action-btn.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #4e555b;
+    transform: translateY(-1px);
+}
+
+.specialist-action-btn.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+.specialist-action-btn.btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+    transform: translateY(-1px);
+}
+
+
+/* Mensaje si no hay especialistas */
+.no-specialists-message {
+    text-align: center;
+    padding: 50px 20px;
+    color: #888;
+    font-size: 1.2em;
+    background-color: #e9ecef;
+    border-radius: 10px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 767px) {
+    .specialists-page-container {
+        padding: 20px;
+        margin: 15px auto;
+    }
+    .specialists-header h1 {
+        font-size: 2.2em;
+    }
+    .specialists-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+    .specialist-card {
+        padding: 20px;
+    }
+    .specialist-avatar {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5em;
+    }
+    .specialist-name {
+        font-size: 1.3em;
+    }
+    .specialist-specialty {
+        font-size: 1em;
+    }
+}
