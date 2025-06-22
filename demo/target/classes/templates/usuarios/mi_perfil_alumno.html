@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <link rel="stylesheet" th:href="@{/css/perfil_usuario.css}">
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="container profile-page-container">
+
+            <div class="profile-main-info">
+                <div class="profile-avatar">
+                    <span th:text="${usuario.nombre != null and !usuario.nombre.isEmpty() ? T(java.lang.Character).toUpperCase(usuario.nombre.charAt(0)) : ''}"></span>
+                    </div>
+                <div class="profile-info-text">
+                    <p class="profile-name" th:text="${usuario.nombre + ' ' + usuario.apellidoPaterno + (usuario.apellidoMaterno != null ? ' ' + usuario.apellidoMaterno : '')}"></p>
+                    <p class="profile-role" th:text="${usuario.rol}"></p>
+                </div>
+            </div>
+
+            <div class="profile-sections-wrapper">
+
+                <div class="profile-section">
+                    <h3>Datos Personales</h3>
+                    <div class="info-group">
+                        <label>RUT:</label>
+                        <p th:text="${usuario.rut}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email:</label>
+                        <p th:text="${usuario.email}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Fecha de Nacimiento:</label>
+                        <p th:text="${usuario.fechaNacimiento != null ? #temporals.format(usuario.fechaNacimiento, 'dd/MM/yyyy') : 'No especificada'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Teléfono:</label>
+                        <p th:text="${usuario.telefono != null ? usuario.telefono : 'No especificado'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Fecha de Registro:</label>
+                        <p th:text="${usuario.fechaRegistro != null ? #temporals.format(usuario.fechaRegistro, 'dd/MM/yyyy HH:mm') : 'No registrada'}"></p>
+                    </div>
+                </div>
+
+                <div class="profile-section" th:if="${usuario.rol == 'ALUMNO'}">
+                    <h3>Datos Académicos</h3>
+                    <div class="info-group">
+                        <label>Curso Actual:</label>
+                        <p th:text="${usuario.curso != null ? usuario.curso : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Profesor Jefe:</label>
+                        <p th:text="${usuario.profesorJefe != null ? usuario.profesorJefe : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Asistencias:</label>
+                        <p th:text="${usuario.asistencias != null ? usuario.asistencias : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Semestre y año de ingreso:</label>
+                        <p th:text="${usuario.semestreIngreso != null ? usuario.semestreIngreso : 'N/A'}"></p>
+                    </div>
+                </div>
+
+                <div class="profile-section" th:if="${usuario.rol == 'ALUMNO'}">
+                    <h3>Datos Apoderado</h3>
+                    <div class="info-group">
+                        <label>Nombre Completo:</label>
+                        <p th:text="${usuario.apoderadoNombre != null ? usuario.apoderadoNombre : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>RUT Apoderado:</label>
+                        <p th:text="${usuario.apoderadoRut != null ? usuario.apoderadoRut : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Teléfono Apoderado:</label>
+                        <p th:text="${usuario.apoderadoTelefono != null ? usuario.apoderadoTelefono : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Email Apoderado:</label>
+                        <p th:text="${usuario.apoderadoEmail != null ? usuario.apoderadoEmail : 'N/A'}"></p>
+                    </div>
+                </div>
+
+                <div class="profile-section" th:if="${usuario.rol != 'ALUMNO'}">
+                    <h3>Datos Profesionales</h3>
+                    <div class="info-group">
+                        <label>Especialidad:</label>
+                        <p th:text="${usuario.especialidad != null ? usuario.especialidad : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Matrícula Profesional:</label>
+                        <p th:text="${usuario.matriculaProfesional != null ? usuario.matriculaProfesional : 'N/A'}"></p>
+                    </div>
+                    <div class="info-group">
+                        <label>Años de Experiencia:</label>
+                        <p th:text="${usuario.aniosExperiencia != null ? usuario.aniosExperiencia : 'N/A'}"></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="about-me-section" th:if="${usuario.acercaDeMi != null and !usuario.acercaDeMi.isEmpty()}">
+                <h3>Acerca de mí</h3>
+                <p th:text="${usuario.acercaDeMi}"></p>
+            </div>
+
+            <div class="profile-actions">
+                <p class="text-muted mt-3">Para actualizar tu información, contacta al administrador del sistema.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        </th:block>
+
+</body>
+</html>

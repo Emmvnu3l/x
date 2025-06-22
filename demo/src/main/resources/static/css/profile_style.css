@@ -1,0 +1,152 @@
+/* src/main/resources/static/css/profile_styles.css */
+
+body {
+    background-color: #f0f2f5; /* Light grey background for the page */
+}
+
+.profile-card {
+    background-color: #ffffff;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 30px;
+    margin-top: -40px; /* Adjust as needed */
+    border: 1px solid #e0e0e0; /* Light border */
+}
+
+.profile-header {
+    background-color: #3b82f6; /* Blue background for the header section */
+    color: white;
+    border-radius: 10px; /* Slightly less rounded than the card */
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* For absolute positioning of image */
+    top: -50px; /* Move header up to overlap with top */
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%; /* Adjust width to create the overlapping effect */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid white; /* White border around the image */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Position image more precisely to match the overlap in the example */
+    position: absolute;
+    top: 50%; /* Center vertically within the blue header */
+    left: 30px; /* Adjust as needed */
+    transform: translateY(-50%);
+    z-index: 10; /* Ensure image is above other elements */
+}
+
+/* Adjust column content to account for the image's absolute positioning */
+.profile-header .col-md-9 {
+    padding-left: 180px; /* Make space for the image */
+}
+
+.profile-name {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.profile-location {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.profile-location i {
+    margin-right: 1px;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.section-title i {
+    margin-right: 8px;
+    color: #3b82f6; /* Icon color */
+}
+
+.section-content {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+hr {
+    border-top: 1px solid #eee;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .profile-img {
+        position: static;
+        transform: none;
+        margin-bottom: 20px;
+    }
+    .profile-header .col-md-9 {
+        padding-left: 15px; /* Reset padding for smaller screens */
+        text-align: center;
+    }
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        top: 0; /* Remove top offset */
+        width: 100%;
+        border-radius: 15px 15px 0 0; /* Adjust border radius for mobile */
+        padding-top: 80px; /* Add padding for image */
+    }
+    .profile-card {
+        padding-top: 0; /* Remove top padding for card on mobile */
+    }
+    /* src/main/resources/static/css/profile_styles.css */
+
+/* ... (Todo tu CSS existente aquí) ... */
+
+/* Estilo para el botón de Contactar personalizado */
+.btn-contact-custom {
+    background-color: #1a73e8; /* Un azul de Google, por ejemplo */
+    color: rgb(136, 25, 25);
+    border: none;
+    border-radius: 50px; /* Bordes más redondeados para un look más moderno */
+    padding: 12px 30px; /* Más padding para un botón más grande */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición suave al pasar el ratón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+.btn-contact-custom:hover {
+    background-color: #0f62d1; /* Un azul más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Un pequeño levantamiento al pasar el ratón */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+}
+
+.btn-contact-custom:active {
+    transform: translateY(0); /* Vuelve a su posición original al hacer click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Para asegurar que el icono también herede el color si es necesario */
+.btn-contact-custom i {
+    color: rgb(141, 48, 48); /* Asegura que el icono sea blanco */
+}
+}

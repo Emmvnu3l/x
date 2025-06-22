@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos de Apoyo - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <style>
+            /* Estilos específicos para la página de Recursos de Apoyo */
+            .resources-container {
+                background-color: #ffffff;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                padding: 30px;
+                max-width: 1200px; /* Ancho máximo, ajusta si es necesario */
+                width: 95%; 
+                margin: 20px auto; /* Centrar y dar un poco de margen */
+                display: flex;
+                flex-direction: column;
+            }
+
+            .resources-header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .resources-header h1 {
+                color: #007bff;
+                font-size: 2.5em;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .resources-header p {
+                color: #555;
+                font-size: 1.1em;
+                line-height: 1.6;
+                max-width: 800px; /* Limita el ancho del párrafo para mejor lectura */
+                margin: 0 auto;
+            }
+
+            .resource-categories {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 30px;
+                justify-content: center; /* Centra las categorías */
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+
+            .category-card {
+                flex: 1;
+                min-width: 280px; /* Ancho mínimo para cada tarjeta de categoría */
+                max-width: 350px; /* Ancho máximo para evitar que se estiren demasiado */
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 25px;
+                text-align: center;
+                background-color: #f8f9fa;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                cursor: pointer;
+            }
+
+            .category-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            }
+
+            .category-card .icon {
+                font-size: 4em; /* Tamaño grande para los íconos */
+                color: #007bff;
+                margin-bottom: 15px;
+            }
+
+            .category-card h3 {
+                font-size: 1.5em;
+                color: #333;
+                margin-bottom: 10px;
+            }
+
+            .category-content-section {
+                margin-top: 40px;
+            }
+
+            .content-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+                gap: 25px;
+            }
+
+            .content-item {
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: #ffffff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+
+            .content-item .video-responsive {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 aspect ratio */
+                height: 0;
+                overflow: hidden;
+            }
+
+            .content-item .video-responsive iframe,
+            .content-item .video-responsive video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            .content-item img {
+                width: 100%;
+                height: 200px; /* Altura fija para imágenes, ajusta si es necesario */
+                object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+            }
+
+            .content-item .item-body {
+                padding: 15px;
+            }
+
+            .content-item h4 {
+                font-size: 1.2em;
+                color: #007bff;
+                margin-bottom: 8px;
+            }
+
+            .content-item p {
+                font-size: 0.95em;
+                color: #666;
+                line-height: 1.5;
+            }
+
+            .content-item .btn {
+                margin-top: 10px;
+            }
+
+            /* Estilos para el PDF si lo incluyes directamente */
+            .pdf-viewer {
+                width: 100%;
+                height: 600px; /* Altura del visor PDF */
+                border: 1px solid #ddd;
+            }
+
+            /* Media queries para responsividad */
+            @media (max-width: 768px) {
+                .resources-header h1 {
+                    font-size: 2em;
+                }
+                .resource-categories {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .category-card {
+                    width: 90%;
+                    max-width: 400px;
+                }
+                .content-grid {
+                    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+                }
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="container resources-container">
+            <div class="resources-header">
+                <h1>RECURSOS DE APOYO PARA TI</h1>
+                <p>
+                    Aquí encontrarás una colección de materiales cuidadosamente seleccionados para fomentar tu bienestar emocional, académico y personal. Explora videos, guías prácticas, artículos y más, diseñados para acompañarte en tu camino.
+                </p>
+            </div>
+
+            <div class="resource-categories">
+                <a th:href="@{#videos-section}" class="category-card" onclick="showSection('videos')">
+                    <span class="icon">▶️</span> <h3>Videos</h3>
+                </a>
+                <a th:href="@{#guides-section}" class="category-card" onclick="showSection('guides')">
+                    <span class="icon">📄</span> <h3>Guías y Documentos</h3>
+                </a>
+                <a th:href="@{#articles-section}" class="category-card" onclick="showSection('articles')">
+                    <span class="icon">📚</span> <h3>Artículos y Lecturas</h3>
+                </a>
+            </div>
+
+            <div id="videos-section" class="category-content-section">
+                <h2>Videos Recomendados sobre Salud Mental</h2>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" 
+                                    title="Título del Video 1" frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                        </div>
+                        <div class="item-body">
+                            <h4>Manejando la Ansiedad en el Colegio</h4>
+                            <p>Un video corto con técnicas de respiración y mindfulness para reducir el estrés escolar.</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_1" target="_blank" class="btn btn-sm btn-outline-primary">Ver en YouTube</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                                    title="Título del Video 2" frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                        </div>
+                        <div class="item-body">
+                            <h4>Guía Rápida para una Buena Noche de Sueño</h4>
+                            <p>Consejos prácticos para mejorar tus hábitos de sueño y su impacto en tu salud mental.</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_2" target="_blank" class="btn btn-sm btn-outline-primary">Ver en YouTube</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
+                                    title="Título del Video 3" frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen></iframe>
+                        </div>
+                        <div class="item-body">
+                            <h4>Conectando con tus Emociones</h4>
+                            <p>Aprende a identificar y gestionar tus emociones de forma saludable.</p>
+                            <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" class="btn btn-sm btn-outline-primary">Ver en YouTube</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="guides-section" class="category-content-section" style="display: none;">
+                <h2>Guías y Documentos Prácticos</h2>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <img th:src="@{/image/guia_ansiedad.png}" alt="Guía de Ansiedad">
+                        <div class="item-body">
+                            <h4>Guía Breve para la Ansiedad Adolescente</h4>
+                            <p>Un resumen visual con estrategias rápidas para manejar la ansiedad.</p>
+                            <a th:href="@{/docs/guia_ansiedad_adolescente.pdf}" target="_blank" class="btn btn-sm btn-primary">Descargar PDF</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <img th:src="@{/image/guia_estudio.png}" alt="Guía de Técnicas de Estudio">
+                        <div class="item-body">
+                            <h4>Técnicas de Estudio Efectivas y Bienestar</h4>
+                            <p>Consejos para optimizar tu estudio sin sacrificar tu salud mental.</p>
+                            <a th:href="@{/docs/tecnicas_estudio_bienestar.pdf}" target="_blank" class="btn btn-sm btn-primary">Descargar PDF</a>
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+
+            <div id="articles-section" class="category-content-section" style="display: none;">
+                <h2>Artículos y Lecturas Interesantes</h2>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <img th:src="@{/image/articulo_resiliencia.png}" alt="Imagen de Resiliencia">
+                        <div class="item-body">
+                            <h4>Desarrollando la Resiliencia: Clave para el Éxito</h4>
+                            <p>Explora cómo fortalecer tu capacidad para superar desafíos y adaptarte a los cambios.</p>
+                            <a href="https://example.com/articulo-resiliencia" target="_blank" class="btn btn-sm btn-outline-secondary">Leer Artículo</a>
+                        </div>
+                    </div>
+
+                    <div class="content-item">
+                        <img th:src="@{/image/articulo_manejo_emociones.png}" alt="Imagen de Manejo Emocional">
+                        <div class="item-body">
+                            <h4>5 Estrategias para un Mejor Manejo Emocional</h4>
+                            <p>Aprende técnicas sencillas para reconocer y gestionar tus emociones día a día.</p>
+                            <a href="https://example.com/articulo-emociones" target="_blank" class="btn btn-sm btn-outline-secondary">Leer Artículo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        <script>
+            // Función para mostrar la sección correspondiente y ocultar las demás
+            function showSection(sectionId) {
+                // Oculta todas las secciones de contenido
+                document.querySelectorAll('.category-content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Muestra la sección deseada
+                document.getElementById(sectionId + '-section').style.display = 'block';
+            }
+
+            // Muestra la sección de videos por defecto al cargar la página
+            document.addEventListener('DOMContentLoaded', () => {
+                showSection('videos');
+            });
+        </script>
+    </th:block>
+
+</body>
+</html>

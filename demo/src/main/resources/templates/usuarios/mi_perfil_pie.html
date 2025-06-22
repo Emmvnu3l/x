@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialistas PIE - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <style>
+            /* Estilos generales para el contenedor de la página de especialistas */
+            .specialists-page-container {
+                background-color: #ffffff;
+                border-radius: 15px;
+                padding: 30px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                margin-top: 0.01px;
+                max-width: 1200px; /* Ancho un poco más grande para las tarjetas */
+                width: 95%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .specialists-header {
+                text-align: center;
+                margin-bottom: 40px;
+                padding-bottom: 20px;
+                border-bottom: 2px solid #aed6f1;
+            }
+
+            .specialists-header h1 {
+                color: #2c3e50;
+                font-size: 2.8em;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+
+            .specialists-header p {
+                color: #666;
+                font-size: 1.1em;
+                line-height: 1.6;
+            }
+
+            /* Estilos para la cuadrícula de tarjetas de especialistas */
+            .specialists-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Columnas responsivas */
+                gap: 25px; /* Espacio entre tarjetas */
+                padding: 10px;
+            }
+
+            /* Estilos para cada tarjeta de especialista */
+            .specialist-card {
+                background-color: #f8f9fa; /* Fondo ligeramente gris para la tarjeta */
+                border: 1px solid #e9ecef;
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                padding: 25px;
+                text-align: center;
+                transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave al pasar el ratón */
+            }
+
+            .specialist-card:hover {
+                transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .specialist-avatar {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: #d4e6f1; /* Azul claro para el avatar */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3.5em;
+                color: #2c3e50;
+                border: 4px solid #ffffff; /* Borde blanco */
+                box-shadow: 0 0 0 2px #007bff; /* Borde exterior azul */
+                margin: 0 auto 15px auto; /* Centrar y margen inferior */
+                overflow: hidden;
+            }
+
+            .specialist-avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .specialist-name {
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #34495e;
+                margin-bottom: 5px;
+            }
+
+            .specialist-specialty {
+                font-size: 1.1em;
+                color: #007bff;
+                font-weight: 600;
+                margin-bottom: 15px;
+            }
+
+            .specialist-description {
+                color: #666;
+                font-size: 0.95em;
+                line-height: 1.6;
+                margin-bottom: 20px;
+                height: 75px; /* Altura fija para la descripción */
+                overflow: hidden; /* Oculta el texto que desborda */
+                text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es muy largo */
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* Limita a 3 líneas */
+                line-clamp: 3; /* Propiedad estándar para compatibilidad */
+                -webkit-box-orient: vertical;
+            }
+
+            .specialist-contact-btn {
+                background-color: #28a745; /* Botón verde para "Contactar" */
+                border-color: #28a745;
+                color: white;
+                font-weight: 500;
+                padding: 10px 20px;
+                border-radius: 5px;
+                text-decoration: none;
+                display: inline-block;
+                transition: background-color 0.2s ease, border-color 0.2s ease;
+            }
+
+            .specialist-contact-btn:hover {
+                background-color: #218838;
+                border-color: #1e7e34;
+            }
+
+            /* Mensaje si no hay especialistas */
+            .no-specialists-message {
+                text-align: center;
+                padding: 50px 20px;
+                color: #888;
+                font-size: 1.2em;
+                background-color: #e9ecef;
+                border-radius: 10px;
+            }
+
+            /* Media queries para responsividad */
+            @media (max-width: 767px) {
+                .specialists-page-container {
+                    padding: 20px;
+                    margin: 15px auto;
+                }
+                .specialists-header h1 {
+                    font-size: 2.2em;
+                }
+                .specialists-grid {
+                    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+                }
+                .specialist-card {
+                    padding: 20px;
+                }
+                .specialist-avatar {
+                    width: 80px;
+                    height: 80px;
+                    font-size: 2.5em;
+                }
+                .specialist-name {
+                    font-size: 1.3em;
+                }
+                .specialist-specialty {
+                    font-size: 1em;
+                }
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="specialists-page-container">
+            <div class="specialists-header">
+                <h1>Nuestros Especialistas PIE</h1>
+                <p>Conoce al equipo de profesionales dedicados que te apoyan en tu camino.</p>
+            </div>
+
+            <div class="specialists-grid" th:if="${not #lists.isEmpty(especialistas)}">
+                <div class="specialist-card" th:each="especialista : ${especialistas}">
+                    <div class="specialist-avatar">
+                        <span th:text="${especialista.nombre != null and !especialista.nombre.isEmpty() ? T(java.lang.Character).toUpperCase(especialista.nombre.charAt(0)) : ''}"></span>
+                        </div>
+                    <p class="specialist-name" th:text="${especialista.nombre + ' ' + especialista.apellidoPaterno}"></p>
+                    <p class="specialist-specialty" th:text="${especialista.especialidad}"></p>
+                    <p class="specialist-description" th:text="${especialista.acercaDeMi != null and !especialista.acercaDeMi.isEmpty() ? especialista.acercaDeMi : 'Especialista dedicado a brindar apoyo y orientación en diversas áreas educativas y psicológicas.'}"></p>
+                    <a href="#" class="btn specialist-contact-btn">Ver Perfil / Contactar</a>
+                    </div>
+            </div>
+
+            <div class="no-specialists-message" th:if="${#lists.isEmpty(especialistas)}">
+                <p>No hay especialistas disponibles en este momento. Por favor, inténtalo más tarde.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        </th:block>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Especialistas</title>
+    <th:block layout:fragment="css-extra">
+        <link rel="stylesheet" th:href="@{/css/lista_especialistas.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="container my-5">
+        <h1>Nuestros Especialistas</h1>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card specialist-card h-100">
+                    <div class="card-body text-center">
+                        <div class="specialist-avatar mb-3">
+                            <span>E</span> 
+                        </div>
+                        <h5 class="card-title">Especialista Ejemplo Uno</h5>
+                        <p class="card-text text-muted">Psicólogo General</p>
+                        <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Santiago, Chile</p>
+                        
+                        <a th:href="@{/perfil:1}" class=".">Ver Perfil / Contactar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card specialist-card h-100">
+                    <div class="card-body text-center">
+                        <div class="specialist-avatar mb-3">
+                            <span>M</span>
+                        </div>
+                        <h5 class="card-title">Maestro de Apoyo</h5>
+                        <p class="card-text text-muted">Educador Diferencial</p>
+                        <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Valparaíso, Chile</p>
+                        
+                        <a th:href="@{/perfil_1}" class="btn specialist-contact-btn mt-3">Ver Perfil / Contactar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card specialist-card h-100">
+                    <div class="card-body text-center">
+                        <div class="specialist-avatar mb-3">
+                            <span>T</span>
+                        </div>
+                        <h5 class="card-title">Terapeuta Ocupacional</h5>
+                        <p class="card-text text-muted">Rehabilitación Infantil</p>
+                        <p class="card-text"><i class="bi bi-geo-alt-fill"></i> Concepción, Chile</p>
+                        
+                        <a th:href="@{/perfil_1}" class="btn specialist-contact-btn mt-3">Ver Perfil / Contactar</a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        </th:block>
+</body>
+</html>

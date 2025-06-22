@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}"> <head> <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenid@ - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <style>
+            /* Estilos específicos para la página de Home/Bienvenida */
+            .home-container {
+                background-color: #ffffff;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                padding: 30px;
+                /* MODIFICACIÓN: Aumentar el ancho máximo del contenedor principal */
+                max-width: 1100px; /* Puedes ajustar este valor (ej. 1200px, 100%, etc.) */
+                width: 95%; 
+                margin: 20px auto; /* Centrar y dar un poco de margen */
+                display: flex;
+                flex-direction: column;
+            }
+
+            .welcome-section {
+                background-color: #e6f7ff; /* Un azul muy claro */
+                border: 1px solid #b3d9ff;
+                border-radius: 8px;
+                padding: 25px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+
+            .welcome-section h1 {
+                color: #007bff;
+                font-size: 2.2em;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .welcome-section p {
+                color: #333;
+                font-size: 1.1em;
+                line-height: 1.6;
+            }
+
+            .info-columns {
+                display: flex;
+                flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+                gap: 30px; /* Espacio entre las columnas */
+            }
+
+            .info-column {
+                flex: 1; /* Permite que cada columna ocupe el espacio disponible */
+                /* MODIFICACIÓN: Ajustar min-width si las columnas se ven muy estrechas al aumentar el ancho total */
+                min-width: 450px; /* Aumenta el ancho mínimo de cada columna individual */
+                padding: 20px;
+                background-color: #f8f9fa;
+                border-radius: 5px;
+                border: 1px solid #e0e0e0;
+                display: flex;
+                flex-direction: column; /* Para alinear el botón al final si es necesario */
+            }
+
+            .info-column h3 {
+                font-size: 1.3em;
+                color: #0056b3;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .info-column p {
+                line-height: 1.6;
+                color: #555;
+                text-align: justify;
+                flex-grow: 1; /* Permite que el texto ocupe el espacio y el botón vaya al final */
+            }
+
+            .chatbot-button-container {
+                text-align: center;
+                margin-top: 20px;
+            }
+            .chatbot-button-container .btn-primary {
+                font-size: 1.1em;
+                padding: 12px 25px;
+                display: inline-flex; /* Para alinear el icono y texto */
+                align-items: center;
+                gap: 8px; /* Espacio entre icono y texto */
+            }
+
+            /* Media query para hacer las columnas una debajo de la otra en pantallas pequeñas */
+            @media (max-width: 992px) { /* MODIFICACIÓN: Ajusta el breakpoint si es necesario */
+                .info-columns {
+                    flex-direction: column;
+                }
+                .info-column {
+                    min-width: unset; /* Reinicia el min-width */
+                }
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="container home-container">
+            <div class="welcome-section">
+                <h1>¡BIENVENID@!</h1>
+                <p>Este es un espacio creado especialmente para ti, estudiante, donde el apoyo, la contención y el respeto son parte fundamental de tu desarrollo.</p>
+                <p>Aquí encontrarás herramientas, recursos de apoyo, profesionales especializados y un chatbot diseñado para orientarte y acompañarte en cada paso de tu camino escolar.</p>
+                <p>Ya sea que necesites ayuda emocional, apoyo para sobrellevar la carga académica, o simplemente un espacio seguro donde expresar lo que sientes, estás en el lugar correcto.</p>
+                <p>Porque no estás solo. En PIE, caminamos contigo.</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        </th:block>
+
+</body>
+</html>

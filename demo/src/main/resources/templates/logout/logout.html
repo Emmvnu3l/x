@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"> <head>
+      layout:decorate="~{layouts/layout}"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sesión Cerrada</title>
@@ -39,7 +39,7 @@
         <div class="logout-card">
             <h2>¡Sesión Cerrada!</h2>
             <p>Has cerrado tu sesión de forma segura. Gracias por usar Sistema PIE.</p>
-            <a th:href="@{/login}" class="btn btn-primary">Iniciar Sesión de Nuevo</a>
+            <a th:href="@{/login_type}" class="btn btn-primary">Iniciar Sesión de Nuevo</a>
         </div>
     </div>
 </body>

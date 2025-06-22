@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}"> <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guías de Apoyo - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <style>
+            /* Estilos para el contenedor principal de la página de guías */
+            .guides-page-container {
+                background-color: #ffffff;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                padding: 30px;
+                max-width: 1000px; /* Ancho ajustable para la galería de guías */
+                width: 95%;
+                margin: 20px auto;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .guides-header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .guides-header h1 {
+                color: #007bff;
+                font-size: 2.5em;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            .guides-header p {
+                color: #555;
+                font-size: 1.1em;
+                line-height: 1.6;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .guide-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 o 3 columnas, 1 en pequeñas */
+                gap: 25px; /* Espacio entre las guías */
+                justify-content: center;
+            }
+
+            .guide-item {
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                overflow: hidden;
+                background-color: #ffffff;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                display: flex;
+                flex-direction: column;
+            }
+
+            .guide-item img {
+                width: 100%;
+                height: 200px; /* Altura fija para las miniaturas de las guías */
+                object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .guide-item .item-body {
+                padding: 15px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .guide-item h4 {
+                font-size: 1.2em;
+                color: #007bff;
+                margin-bottom: 8px;
+            }
+
+            .guide-item p {
+                font-size: 0.95em;
+                color: #666;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .guide-item .btn {
+                align-self: flex-start;
+            }
+
+            /* Media queries para responsividad */
+            @media (max-width: 768px) {
+                .guides-header h1 {
+                    font-size: 2em;
+                }
+                .guide-grid {
+                    grid-template-columns: 1fr;
+                }
+                .guides-page-container {
+                    padding: 20px;
+                    margin: 15px auto;
+                }
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="container guides-page-container">
+            <div class="guides-header">
+                <h1>Guías y Documentos Prácticos</h1>
+                <p>Descarga nuestras guías y documentos con información valiosa y herramientas prácticas para el manejo del estrés, técnicas de estudio y bienestar general.</p>
+            </div>
+
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <img th:src="@{/images/guia_ansiedad.png}" alt="Guía de Ansiedad">
+                    <div class="item-body">
+                        <h4>Guía Breve para la Ansiedad Adolescente</h4>
+                        <p>Un recurso conciso con estrategias comprobadas para manejar la ansiedad y el estrés en el día a día.</p>
+                        <a th:href="@{/docs/guia_ansiedad_adolescente.pdf}" target="_blank" class="btn btn-sm btn-primary">Descargar PDF</a>
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <img th:src="@{/images/guia_estudio.png}" alt="Guía de Técnicas de Estudio">
+                    <div class="item-body">
+                        <h4>Técnicas de Estudio Efectivas y Bienestar</h4>
+                        <p>Mejora tu rendimiento académico con técnicas de estudio que también cuidan tu salud mental.</p>
+                        <a th:href="@{/docs/tecnicas_estudio_bienestar.pdf}" target="_blank" class="btn btn-sm btn-primary">Descargar PDF</a>
+                    </div>
+                </div>
+
+                <div class="guide-item">
+                    <img th:src="@{/images/guia_autocuidado.png}" alt="Guía de Autocuidado">
+                    <div class="item-body">
+                        <h4>Autocuidado para tu Salud Mental</h4>
+                        <p>Descubre la importancia del autocuidado y cómo incorporarlo en tu rutina diaria.</p>
+                        <a th:href="@{/docs/guia_autocuidado.pdf}" target="_blank" class="btn btn-sm btn-primary">Descargar PDF</a>
+                    </div>
+                </div>
+                
+                </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        </th:block>
+
+</body>
+</html>

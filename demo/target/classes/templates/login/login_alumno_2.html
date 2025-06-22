@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}"> <head>
+      layout:decorate="~{layouts/layout}"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Sistema PIE</title>
@@ -54,7 +54,8 @@
 
     <div layout:fragment="content">
         <div class="login-card">
-            <h2>Iniciar Sesión</h2>
+            <h2>Bienvenid@</h2>
+            <p>Por favor, ingresa tus datos para iniciar sesión</p>
             
             <div th:if="${error}" class="alert alert-danger" role="alert">
                 <span th:text="${error}"></span>
@@ -62,14 +63,14 @@
 
             <form th:action="@{/process-login-demo}" method="post"> 
                 <div class="mb-3">
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Usuario" required autofocus>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Usuario o correo institucional" required autofocus>
                 </div>
                 <div class="mb-3">
                     <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
             </form>
-            <p class="mt-3"><a th:href="@{/login}">Volver a selección de perfil</a></p> 
+            <p class="mt-3"><a th:href="@{/home/home}">Volver a selección de perfil</a></p> 
             <p><a th:href="@{/recuperar-contrasena}">¿Olvidaste tu contraseña?</a></p>
         </div>
     </div>

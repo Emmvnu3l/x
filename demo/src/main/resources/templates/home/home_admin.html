@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}"> <head>
+    <title>Inicio</title> </head>
+<body>
+
+    <div layout:fragment="content"> <div class="jumbotron bg-light p-5 rounded-3">
+            <h1 class="display-4">¡Bienvenido al Sistema PIE!</h1>
+            <p class="lead">Tu portal de apoyo integral al bienestar emocional y académico.</p>
+            <hr class="my-4">
+            <p>Aquí encontrarás recursos, podrás solicitar citas y acceder a información personalizada.</p>
+            <!-- <a class="btn btn-primary btn-lg" href="/login_type" role="button">Iniciar Sesión</a> -->
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Salud Mental</h5>
+                        <p class="card-text">Explora recursos para tu bienestar emocional.</p>
+                        <a href="/salud-mental" class="btn btn-sm btn-outline-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Citas PIE</h5>
+                        <p class="card-text">Solicita y gestiona tus citas con profesionales.</p>
+                        <a href="/citas" class="btn btn-sm btn-outline-primary">Gestionar Citas</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Chatbot de Apoyo</h5>
+                        <p class="card-text">Obtén respuestas rápidas o solicita asistencia.</p>
+                        <a href="/chatbot/registered" class="btn btn-sm btn-outline-primary">Iniciar Chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

@@ -1,0 +1,256 @@
+/* Reset básico y fuente si no están en el layout principal */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Color de fondo del body, por si el layout no lo tiene */
+}
+
+/* Contenedor principal del perfil */
+.profile-page-container {
+    background-color: #ffffff; /* Fondo blanco para el contenedor principal */
+    border-radius: 15px; /* Bordes más redondeados como en el mockup */
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    margin-top: 5px; /* Margen superior para separarlo del navbar/header del layout */
+    max-width: 960px; /* Ajustado para un diseño de 3 columnas más espacioso */
+    width: 95%; /* Asegura responsividad */
+    margin-left: auto; /* Centrar */
+    margin-right: auto; /* Centrar */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar contenido horizontalmente */
+}
+
+/* Encabezado principal de la página de perfil (el título "Mi Perfil") */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px; /* Más espacio abajo */
+    padding-bottom: 20px;
+    border-bottom: 2px solid #aed6f1; /* Línea azul clara más visible */
+    width: 100%;
+}
+
+.profile-header h1 {
+    color: #2c3e50; /* Color oscuro similar al navbar */
+    font-size: 2.8em; /* Tamaño de fuente más grande */
+    margin-bottom: 10px;
+    font-weight: 700; /* Negrita */
+}
+
+.profile-header p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Sección de Avatar y Nombre del usuario */
+.profile-main-info {
+    display: flex;
+    flex-direction: column; /* Apilado por defecto para móvil */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px; /* Más espacio */
+    width: 100%;
+}
+
+.profile-avatar {
+    width: 160px; /* Un poco más grande para el avatar */
+    height: 160px;
+    border-radius: 50%;
+    background-color: #aed6f1; /* Fondo azul claro del mockup original */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5.5em; /* Icono o inicial más grande */
+    color: #2c3e50; /* Color oscuro para la inicial */
+    border: 6px solid #ffffff; /* Borde blanco que da profundidad */
+    box-shadow: 0 0 0 3px #007bff; /* Borde exterior azul como en el mockup */
+    overflow: hidden; /* Asegura que la imagen no se salga del círculo */
+    margin-bottom: 25px; /* Espacio debajo del avatar en modo columna */
+    flex-shrink: 0; /* Evita que el avatar se encoja */
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsión */
+}
+
+.profile-name {
+    font-size: 2em; /* Nombre más grande */
+    font-weight: bold;
+    color: #34495e; /* Color oscuro */
+    margin-bottom: 8px;
+}
+
+.profile-role {
+    font-size: 1.2em;
+    color: #007bff; /* Color de énfasis */
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Contenedor de las secciones de datos (columnas) */
+.profile-sections-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las columnas se apilen */
+    gap: 25px; /* Espacio entre las secciones */
+    width: 100%;
+    justify-content: center; /* Centrar las secciones cuando no llenan el ancho */
+}
+
+.profile-section {
+    flex: 1; /* Permite que la sección crezca y ocupe espacio */
+    min-width: 280px; /* Ancho mínimo antes de apilarse */
+    border: 1px solid #e9ecef; /* Borde suave */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 25px;
+    background-color: #f0f4f8; /* Fondo ligeramente azulado para las secciones */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suave para las secciones */
+}
+
+.profile-section h3 {
+    font-size: 1.5em; /* Título de sección más grande */
+    color: #34495e; /* Color oscuro */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #aed6f1; /* Línea de separación bajo el título */
+}
+
+.info-group {
+    margin-bottom: 18px; /* Más espacio entre grupos de información */
+}
+
+.info-group label {
+    font-weight: 600; /* Más negrita */
+    color: #555;
+    display: block;
+    margin-bottom: 6px; /* Más espacio entre label y valor */
+    font-size: 0.95em;
+}
+
+.info-group p {
+    margin: 0;
+    color: #444;
+    font-size: 1.05em; /* Tamaño de fuente ligeramente más grande para el valor */
+    word-wrap: break-word; /* Asegura que el texto largo se ajuste */
+    padding: 10px 15px; /* Más padding para los valores */
+    background-color: #ffffff; /* Fondo blanco para los valores */
+    border: 1px solid #dcdcdc; /* Borde suave */
+    border-radius: 6px; /* Bordes redondeados */
+}
+
+/* Sección "Acerca de mí" (ocupa todo el ancho) */
+.about-me-section {
+    width: 100%; /* Ocupa todo el ancho */
+    margin-top: 30px; /* Espacio superior */
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #f0f4f8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.about-me-section h3 {
+    font-size: 1.5em;
+    color: #34495e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #aed6f1;
+}
+
+.about-me-section p {
+    color: #666;
+    line-height: 1.7; /* Mayor interlineado para mejor lectura */
+    font-size: 1em;
+}
+
+/* Acciones y mensaje final (para el botón Contactar, por ejemplo) */
+.profile-actions {
+    margin-top: 40px; /* Más espacio arriba */
+    width: 100%;
+    text-align: center;
+}
+
+.profile-actions p {
+    color: #777;
+    font-style: italic;
+    font-size: 0.95em;
+}
+
+/* Estilo para el botón de Contactar (este es el estilo personalizado) */
+.btn-contact-custom {
+    background-color: #007bff; /* Azul primario de Bootstrap */
+    color: white;
+    border: none;
+    border-radius: 50px; /* Bordes más redondeados */
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+}
+
+.btn-contact-custom:hover {
+    background-color: #0056b3; /* Un azul más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño levantamiento */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-contact-custom:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-contact-custom i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+
+/* Media queries para responsividad */
+@media (min-width: 768px) {
+    .profile-main-info {
+        flex-direction: row; /* En fila para pantallas grandes */
+        text-align: left;
+        justify-content: flex-start; /* Alinea a la izquierda */
+    }
+    .profile-avatar {
+        margin-right: 35px; /* Espacio a la derecha del avatar */
+        margin-bottom: 0;
+    }
+    .profile-info-text {
+        align-self: center; /* Centra verticalmente el texto junto al avatar */
+    }
+}
+
+@media (max-width: 767px) {
+    .profile-page-container {
+        padding: 20px;
+        margin: 15px auto;
+    }
+    .profile-header h1 {
+        font-size: 2.2em;
+    }
+    .profile-main-info {
+        margin-bottom: 30px;
+    }
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        font-size: 4em;
+        margin-bottom: 15px;
+    }
+    .profile-name {
+        font-size: 1.6em;
+    }
+    .profile-role {
+        font-size: 1.1em;
+    }
+    .profile-section {
+        min-width: unset; /* Elimina el min-width para adaptarse mejor */
+        width: 100%; /* Ocupa el 100% en móvil */
+        padding: 20px;
+    }
+    .about-me-section {
+        padding: 20px;
+    }
+}

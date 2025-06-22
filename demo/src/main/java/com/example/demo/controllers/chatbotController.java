@@ -37,7 +37,7 @@ public class chatbotController {
             password != null && !password.trim().isEmpty()) {
             
             // Si hay algo escrito, simulamos un login exitoso y redirigimos al chatbot registrado
-            return "redirect:/chatbot/registered"; 
+            return "redirect:/home_registrado"; 
         } else {
             // Si algún campo está vacío (aunque el 'required' de HTML debería atraparlo),
             // volvemos a la página de login con un mensaje de error.

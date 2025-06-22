@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout_registrado}"> <head>
+      layout:decorate="~{layouts/layout_registrado}"> <head>
     <title>Recursos de Apoyo</title>
     
     <th:block layout:fragment="css-extra">
@@ -108,11 +108,6 @@
 <body>
 
     <div layout:fragment="content">
-        <nav class="subnav-section">
-            <a class="nav-link" th:href="@{/chatbot}">CHATBOT</a>
-            <a class="nav-link" th:href="@{/nosotros}">NOSOTROS</a>
-            <a class="nav-link" th:href="@{/mi-perfil}">MI PERFIL</a> <a class="nav-link" th:href="@{/agenda}">AGENDA</a> <a class="nav-link" th:href="@{/equipo-pie}">EQUIPO PIE</a> <a class="nav-link active" th:href="@{/recursos-apoyo}">RECURSOS DE APOYO</a> <a class="nav-link" th:href="@{/preguntas-frecuentes}">PREGUNTAS FRECUENTES</a> <a class="nav-link" th:href="@{/logout}">CERRAR SESIÓN</a> </nav>
-
         <div class="resources-container">
             <div class="resources-header">
                 <h2>RECURSOS DE APOYO PARA TI</h2>
@@ -120,13 +115,13 @@
             </div>
 
             <div class="resource-cards-container">
-                <a th:href="@{/recursos-apoyo/videos}" class="resource-card">
-                    <img th:src="@{/images/play-circle-solid.svg}" alt="Videos Icono">
+                <a th:href="@{/apoyo_yt}" class="resource-card">
+                    <img th:src="@{/images/youtube.png}" alt="Videos Icono">
                     <p>VIDEOS</p>
                 </a>
 
-                <a th:href="@{/recursos-apoyo/guias}" class="resource-card">
-                    <img th:src="@{/images/file-alt-solid.svg}" alt="Guías Icono">
+                <a th:href="@{apoyo_guide}" class="resource-card">
+                    <img th:src="@{/images/guide.png}" alt="Guías Icono">
                     <p>GUÍAS</p>
                 </a>
             </div>
