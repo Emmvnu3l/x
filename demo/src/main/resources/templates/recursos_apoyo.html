@@ -1,109 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout_registrado}"> <head>
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recursos de Apoyo</title>
-    
+
     <th:block layout:fragment="css-extra">
-        <style>
-            /* Estilos para la sub-navegación (similar a la del chatbot) */
-            .subnav-section {
-                width: 100%;
-                background-color: #e9ecef; /* Color de fondo claro */
-                padding: 10px 0;
-                box-shadow: 0 2px 4px rgba(0,0,0,.05);
-                margin-bottom: 20px; /* Espacio debajo de la sub-navbar */
-                text-align: center; /* Centrar los enlaces */
-            }
-            .subnav-section .nav-link {
-                font-weight: bold;
-                color: #333;
-                margin: 0 15px;
-                display: inline-block; /* Para que los enlaces estén en línea */
-            }
-            .subnav-section .nav-link:hover {
-                color: #007bff;
-            }
-
-            /* Estilos para el contenedor principal de la página */
-            .resources-container {
-                background-color: #ffffff;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-                padding: 30px;
-                max-width: 900px; /* Ancho máximo similar a otros contenedores */
-                width: 100%;
-                margin: auto; /* Centrar dentro del main del layout */
-                display: flex;
-                flex-direction: column;
-                align-items: center; /* Centrar contenido horizontalmente */
-            }
-
-            .resources-header {
-                margin-bottom: 30px;
-                padding-bottom: 15px;
-                border-bottom: 1px solid #e9ecef;
-                text-align: center;
-                width: 100%; /* Ocupar todo el ancho del contenedor */
-            }
-            .resources-header h2 {
-                font-weight: bold;
-                color: #333;
-                margin-bottom: 5px;
-            }
-            .resources-header p {
-                color: #666;
-                font-size: 1.1em;
-                line-height: 1.6;
-            }
-
-            .resource-cards-container {
-                display: flex;
-                flex-wrap: wrap; /* Para que las tarjetas se envuelvan en pantallas pequeñas */
-                justify-content: center; /* Centrar tarjetas */
-                gap: 30px; /* Espacio entre tarjetas */
-                margin-top: 20px;
-            }
-
-            .resource-card {
-                background-color: #f8f9fa; /* Fondo ligeramente diferente para las tarjetas */
-                border: 1px solid #e0e0e0;
-                border-radius: 8px;
-                padding: 25px;
-                text-align: center;
-                width: 200px; /* Ancho fijo para las tarjetas, similar a los wireframes */
-                height: 200px; /* Altura fija para que sean cuadradas */
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-decoration: none; /* Quitar subrayado del enlace */
-                color: #333;
-                transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-            }
-            .resource-card:hover {
-                transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-                color: #007bff; /* Color al pasar el ratón */
-            }
-            .resource-card img {
-                width: 80px; /* Tamaño del icono */
-                height: 80px;
-                margin-bottom: 15px;
-                filter: grayscale(100%); /* Iconos en gris por defecto */
-                transition: filter 0.2s ease-in-out;
-            }
-            .resource-card:hover img {
-                filter: grayscale(0%); /* Color al pasar el ratón */
-            }
-            .resource-card p {
-                font-weight: bold;
-                font-size: 1.1em;
-                margin: 0;
-            }
-        </style>
-    </th:block>
+        <link rel="stylesheet" th:href="@{/css/recursos_apoyo_style.css}">
+        </th:block>
 </head>
 <body>
 
@@ -120,13 +26,13 @@
                     <p>VIDEOS</p>
                 </a>
 
-                <a th:href="@{apoyo_guide}" class="resource-card">
+                <a th:href="@{/apoyo_guide}" class="resource-card">
                     <img th:src="@{/images/guide.png}" alt="Guías Icono">
                     <p>GUÍAS</p>
                 </a>
             </div>
-            </div>
+        </div>
     </div>
 
-    </body>
+</body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita</title>
+    <th:block layout:fragment="css-extra">
+        <link rel="stylesheet" th:href="@{/css/form_style.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="container my-5">
+        <div class="card p-4 shadow-sm">
+            <h2 class="card-title text-center mb-4">Agenda tu cita con un especialista de confianza</h2>
+            <p class="text-center text-muted mb-4">
+                Selecciona la fecha y hora
+                <span th:text="${especialistaId}"></span>.
+            </p>
+
+            <form th:action="@{/cita_confirmada}" method="get">
+                <input type="hidden" name="especialistaId" th:value="${especialistaId}" />
+
+                <div class="mb-3">
+                    <label for="fecha" class="form-label">Fecha Preferida:</label>
+                    <input type="date" class="form-control" id="fecha" name="fecha" required>
+                </div>
+                <div class="mb-3">
+                    <label for="hora" class="form-label">Hora preferida:</label>
+                    <input type="time" class="form-control" id="hora" name="hora" required>
+                </div>
+                <div class="mb-3">
+                    <label for="motivo" class="form-label">Motivo de la cita (breve):</label>
+                    <textarea class="form-control" id="motivo" name="motivo" rows="3"></textarea>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                    <button type="submit" class="btn btn-success btn-lg">Confirmar Cita</button>
+                    <a th:href="@{'/perfil/' + ${especialistaId}}" class="btn btn-secondary btn-lg">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

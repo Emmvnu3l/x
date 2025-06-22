@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Profesional</title>
+
+    <th:block layout:fragment="styles">
+        <link rel="stylesheet" th:href="@{/css/profile_style.css}">
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="container my-5">
+        <div class="profile-card">
+            <div class="profile-header row align-items-center">
+                <div class="col-md-3 text-center text-md-start">
+                <img src="/images/daniel.png" alt="Foto de Perfil" class="profile-img img-fluid rounded-circle">
+                </div>
+                <div class="col-md-9 mt-3 mt-md-0">
+                    <h2 class="profile-name">Daniel Vidal</h2>
+                    <p class="profile-title">Psicólogo Educacional | Apoyo Psicoemocional Escolar | Integración e Inclusión Educativa</p>
+                    <p class="profile-location"><i class="bi bi-geo-alt-fill"></i> <span class="me-2">Chileno </span> | <i class="bi bi-patch-check-fill"></i> Comprometido con el bienestar integral</p>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="profile-details row">
+                <div class="col-md-3">
+                    <h5 class="section-title"><i class="bi bi-info-circle-fill"></i> Sobre mí:</h5>
+                    <p class="section-content">
+                        Hola, soy Daniel Vidal, psicólogo del equipo PIE. Trabajo para ayudarte a sentirte mejor en el colegio, ya sea con tus emociones, tus relaciones o tus aprendizajes. Pero además de ser psicólogo, también soy una persona como tú, con gustos, hobbies y cosas que me encantan hacer en mi tiempo libre.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="section-title"><i class="bi bi-film"></i> Películas favoritas:</h5>
+                    <p class="section-content">
+                        Me encantan las películas que hacen pensar y también las que te hacen reír. Algunas de mis favoritas son Intensamente, En busca de la felicidad y Coco. Creo que todas tienen mensajes bonitos sobre las emociones, la familia o seguir tus sueños.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="section-title"><i class="bi bi-controller"></i> Juegos que me gustan:</h5>
+                    <p class="section-content">
+                        En mi tiempo libre disfruto jugar videojuegos. Me gustan los que te hacen usar la cabeza, como los de aventuras o estrategia, pero también juego algunos más relajados. Uno de mis favoritos es The Legend of Zelda, por la historia y la exploración. También me divierten juegos simples como Among Us o Minecraft.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="section-title"><i class="bi bi-journal-text"></i> Otras cosas de interés:</h5>
+                    <p class="section-content">
+                        Me gusta leer sobre cómo funciona la mente, pero también disfruto libros de fantasía o ciencia ficción. Escucho música mientras trabajo, camino o simplemente para relajarme. Y si tengo tiempo me gusta salir a caminar o andar en bicicleta.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="http://localhost:8080/agendar" class="btn btn-lg btn-contact-custom">
+                <i class="bi bi-envelope-fill me-2"></i> Contactar
+            </a>
+        </div>
+
+    </div>
+
+    <th:block layout:fragment="scripts">
+    </th:block>
+</body>
+</html>

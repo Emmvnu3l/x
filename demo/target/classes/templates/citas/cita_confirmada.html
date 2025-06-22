@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_registrado}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cita Confirmada</title>
+    <th:block layout:fragment="css-extra">
+        <link rel="stylesheet" th:href="@{/css/form_style.css}"> <style>
+            /* Estilos específicos para la página de confirmación */
+            .confirmation-card {
+                text-align: center;
+                background-color: #f8f9fa; /* Gris claro, neutro y profesional */
+                border: 1px solid #dee2e6; /* Borde sutil */
+                color: #343a40; /* Texto oscuro para buen contraste */
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+                max-width: 700px;
+                margin: 60px auto; /* Centrar y dar espacio */
+            }
+            .confirmation-card h2 {
+                color: #28a745; /* Verde para indicar éxito */
+                font-size: 2.5em;
+                margin-bottom: 20px;
+                font-weight: 700;
+            }
+            .confirmation-card p {
+                font-size: 1.2em;
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+            .confirmation-card .icon {
+                font-size: 4.5em;
+                color: #28a745; /* Verde del éxito */
+                margin-bottom: 25px;
+            }
+            /* Estilos de botones, reutilizando los de form_style.css o definiéndolos aquí */
+            .btn-action {
+                padding: 12px 28px;
+                font-size: 1.1em;
+                border-radius: 30px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 10px;
+            }
+            .btn-primary-action {
+                background-color: #4A90E2;
+                border-color: #4A90E2;
+                color: white;
+            }
+            .btn-primary-action:hover {
+                background-color: #357ABD;
+                border-color: #357ABD;
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+            }
+            .btn-secondary-action {
+                background-color: #E0E0E0;
+                border-color: #E0E0E0;
+                color: #4A4A4A;
+            }
+            .btn-secondary-action:hover {
+                background-color: #CBCBCB;
+                border-color: #CBCBCB;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+    <div layout:fragment="content" class="container my-5">
+        <div class="confirmation-card">
+            <div class="icon">
+                <i class="bi bi-check-circle-fill"></i> </div>
+            <h2>¡Tu Cita Ha Sido Registrada!</h2>
+            <p>Hemos recibido tu solicitud de cita. En breve, el profesional se pondrá en contacto contigo para confirmar los detalles.</p>
+            <p>Agradecemos tu paciencia y confianza en nuestros servicios.</p>
+
+            <div class="mt-5">
+                <a th:href="@{/usuarios_pie}" class="btn-action btn-primary-action">
+                    <i class="bi bi-person-fill me-2"></i> Ver Otros Profesionales
+                </a>
+                <a th:href="@{'/perfil/' + ${especialistaId}}" class="btn-action btn-secondary-action" th:if="${especialistaId}">
+                    <i class="bi bi-arrow-left-circle-fill me-2"></i> Volver al Perfil del Profesional
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        </th:block>
+</body>
+</html>

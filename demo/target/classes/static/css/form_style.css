@@ -1,0 +1,132 @@
+/* General styles for form containers (e.g., .card in your HTML) */
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* A bit more pronounced shadow */
+    max-width: 600px; /* Limit width for better readability on large screens */
+    /* MODIFICACIÓN CLAVE AQUÍ: */
+    margin: 20px auto; /* Reducido a 20px de margen superior/inferior */
+    /* Para centrar verticalmente de forma más robusta, podrías considerar: */
+    /* position: absolute; */
+    /* top: 50%; */
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    /* ATENCIÓN: Estas 4 líneas requieren que el padre (ej. 'container') tenga height: 100vh;
+       y podría interferir con tu layout principal. La opción de margin es más segura inicialmente.
+       Usa estas solo si el margin no es suficiente y entiendes las implicaciones. */
+}
+
+/* Styles for card titles */
+.card-title {
+    color: #2c3e50; /* Dark blue/gray for headings */
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Styles for descriptive text below title */
+.text-muted {
+    color: #6c757d !important; /* Standard Bootstrap's text-muted color */
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Styles for form labels */
+.form-label {
+    font-weight: 600;
+    color: #34495e; /* Slightly lighter dark blue/gray for labels */
+    margin-bottom: 8px;
+    display: block; /* Ensures label takes its own line */
+}
+
+/* Styles for form input fields and textareas */
+.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 8px; /* Slightly more rounded corners */
+    padding: 12px 15px;
+    font-size: 1.05em;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #a0c4ff; /* Lighter blue on focus */
+    box-shadow: 0 0 0 0.25rem rgba(160, 196, 255, 0.4); /* Matching focus shadow */
+    outline: none; /* Remove default outline */
+}
+
+/* Styles for buttons within forms */
+.btn-lg {
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 30px; /* Fully rounded buttons */
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none; /* Ensure no underline on links */
+    display: inline-flex; /* Align icon and text vertically */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+.btn-lg .bi { /* Style for Bootstrap Icons within buttons */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+
+/* --- Custom Button Styles --- */
+
+/* Primary button (e.g., "Enviar Mensaje", "Confirmar Cita") */
+.btn-primary, .btn-success { /* Grouping these for similar primary action look */
+    background-color: #4A90E2; /* A more pleasant, professional blue */
+    border-color: #4A90E2;
+    color: white;
+}
+.btn-primary:hover, .btn-success:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+    border-color: #357ABD;
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3); /* Blue shadow */
+}
+
+/* Secondary button (e.g., "Cancelar", "Volver") */
+.btn-secondary {
+    background-color: #E0E0E0; /* Light gray for secondary action */
+    border-color: #E0E0E0;
+    color: #4A4A4A; /* Darker text for contrast */
+}
+.btn-secondary:hover {
+    background-color: #CBCBCB; /* Darker gray on hover */
+    border-color: #CBCBCB;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle gray shadow */
+}
+
+
+/* Utility classes for spacing from Bootstrap (mb-3, mt-4, etc.)
+   Make sure Bootstrap CSS is also linked in your layout_registrado.html */
+.mb-3 { margin-bottom: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+.d-grid { display: grid; }
+.gap-2 { gap: 0.5rem !important; }
+.d-md-flex { display: flex !important; } /* For medium screens and up */
+.justify-content-md-center { justify-content: center !important; } /* For medium screens and up */
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 767px) {
+    .card {
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .card-title {
+        font-size: 1.8em;
+    }
+    .btn-lg {
+        width: 100%; /* Full width buttons on small screens */
+        margin-bottom: 10px; /* Space between stacked buttons */
+    }
+    .d-md-flex {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+}
