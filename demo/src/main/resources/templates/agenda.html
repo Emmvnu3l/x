@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout_pie}">
+      layout:decorate="~{layouts/layout_registrado}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,52 +22,50 @@
 
             <div class="agenda-sections">
                 <div class="agenda-section-card" data-target="proximas-citas-content">
-                    <div>
-                        <span>(3)</span> Próximas Citas
-                    </div>
-                    <a href="#" class="btn btn-outline-primary btn-sm btn-ver" data-target="proximas-citas-content">Ver</a>
+                    <span>(3)</span> Próximas Citas
                 </div>
                 <div id="proximas-citas-content" class="agenda-details-content">
                     <h3>Detalle de Próximas Citas</h3>
                     <ul>
-                        <li>Cita: 25 de Junio, 10:00 AM - Psicopedagogo Juan Pérez</li>
-                        <li>Cita: 01 de Julio, 11:30 AM - Fonoaudióloga Ana García</li>
-                        <li>Cita: 05 de Julio, 09:00 AM - Psicólogo Carlos Ruiz</li>
+                        <li>
+                            Cita: 25 de Junio, 10:00 AM - Psicopedagogo Juan Pérez
+                            <a href="#" class="btn btn-primary btn-sm ms-3">Ver</a>
+                        </li>
+                        <li>
+                            Cita: 01 de Julio, 11:30 AM - Fonoaudióloga Ana García
+                            <a href="#" class="btn btn-primary btn-sm ms-3">Ver</a>
+                        </li>
+                        <li>
+                            Cita: 05 de Julio, 09:00 AM - Psicólogo Carlos Ruiz
+                            <a href="#" class="btn btn-primary btn-sm ms-3">Ver</a>
+                        </li>
                     </ul>
                     <p>Aquí se mostrarán tus citas pendientes.</p>
                 </div>
 
                 <div class="agenda-section-card" data-target="historial-citas-content">
-                    <div>
-                        <span>(15)</span> Historial Citas
-                    </div>
-                    <a href="#" class="btn btn-outline-primary btn-sm btn-ver" data-target="historial-citas-content">Ver</a>
+                    <span>(15)</span> Historial Citas
                 </div>
                 <div id="historial-citas-content" class="agenda-details-content">
                     <h3>Detalle de Historial de Citas</h3>
                     <ul>
-                        <li>Cita: 20 de Mayo, 10:00 AM - Psicopedagogo Juan Pérez (Realizada)</li>
-                        <li>Cita: 10 de Abril, 15:00 PM - Psicólogo Laura Mena (Realizada)</li>
-                        <li>Cita: 01 de Marzo, 09:00 AM - Fonoaudióloga Ana García (Cancelada)</li>
+                        <li>
+                            Cita: 20 de Mayo, 10:00 AM - Psicopedagogo Juan Pérez (Realizada)
+                            <a href="#" class="btn btn-secondary btn-sm ms-3">Ver Detalle</a>
+                        </li>
+                        <li>
+                            Cita: 10 de Abril, 15:00 PM - Psicólogo Laura Mena (Realizada)
+                            <a href="#" class="btn btn-secondary btn-sm ms-3">Ver Detalle</a>
+                        </li>
+                        <li>
+                            Cita: 01 de Marzo, 09:00 AM - Fonoaudióloga Ana García (Cancelada)
+                            <a href="#" class="btn btn-secondary btn-sm ms-3">Ver Detalle</a>
+                        </li>
                     </ul>
                     <p>Aquí se mostrarán tus citas pasadas.</p>
                 </div>
 
-                <div class="agenda-section-card" data-target="citas-solicitadas-content">
-                    <div>
-                        <span>(5)</span> Citas solicitadas por alumnos
-                    </div>
-                    <a href="#" class="btn btn-outline-primary btn-sm btn-ver" data-target="citas-solicitadas-content">Ver</a>
-                </div>
-                <div id="citas-solicitadas-content" class="agenda-details-content">
-                    <h3>Detalle de Citas Solicitadas por Alumnos</h3>
-                    <ul>
-                        <li>Solicitud de: Alumno A - Psicología (Pendiente)</li>
-                        <li>Solicitud de: Alumno B - Psicopedagogía (Revisada)</li>
-                        <li>Solicitud de: Alumno C - Fonoaudiología (Pendiente)</li>
-                    </ul>
-                    <p>Aquí se mostrarán las solicitudes de cita de los alumnos.</p>
-                </div>
+                
             </div>
 
         </div>
