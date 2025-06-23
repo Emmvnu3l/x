@@ -1,0 +1,109 @@
+/* Estilos específicos para la página de Agenda */
+.agenda-container {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    max-width: 900px;
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+    flex-grow: 1;
+}
+
+.agenda-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+    text-align: center;
+}
+
+.agenda-header h2 {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.agenda-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.agenda-section-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center; /* Centrar el texto principal */
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer; /* La tarjeta sigue siendo clicable para desplegar */
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+    /* Ya no necesitamos flexbox aquí para alinear el texto y un botón externo, solo el texto */
+    display: block; /* Volvemos a un display block normal */
+}
+
+.agenda-section-card:hover {
+    background-color: #e2e6ea;
+    border-color: #c0c4c8;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.agenda-section-card span {
+    font-weight: bold;
+    color: #0056b3;
+}
+
+/* Estilos para el contenido de cada sub-apartado */
+.agenda-details-content {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px dashed #cccccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    display: none;
+}
+.agenda-details-content.active {
+    display: block;
+}
+.agenda-details-content ul {
+    list-style: none;
+    padding: 0;
+}
+.agenda-details-content ul li {
+    background-color: #e6f7ff;
+    border: 1px solid #b3d9ff;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: #0056b3;
+    /* Para alinear el texto y el botón dentro del li */
+    display: flex;
+    justify-content: space-between; /* Alinea el texto a la izquierda y el botón a la derecha */
+    align-items: center; /* Centra verticalmente */
+    flex-wrap: wrap; /* Permite que el botón baje si no hay espacio */
+}
+
+/* Espacio entre el texto de la cita y el botón */
+.agenda-details-content ul li .btn {
+    margin-left: 15px; /* Pequeño margen para separar el botón del texto */
+    flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+/* Media query para pantallas pequeñas: el botón puede ir debajo del texto */
+@media (max-width: 576px) { /* Bootstrap 'sm' breakpoint */
+    .agenda-details-content ul li {
+        flex-direction: column; /* Apilar texto y botón verticalmente */
+        align-items: flex-start; /* Alinear elementos a la izquierda */
+    }
+    .agenda-details-content ul li .btn {
+        margin-top: 10px; /* Espacio superior para el botón */
+        margin-left: 0; /* Eliminar margen izquierdo */
+    }
+}
