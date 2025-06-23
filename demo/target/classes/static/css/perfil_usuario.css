@@ -18,7 +18,7 @@ body {
     border-radius: 12px; /* Ligeramente más redondeado para armonizar */
     padding: 30px;
     box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada y suave */
-    margin-top: -20px; /* Margen superior para separarlo del navbar/header del layout */
+    margin-top: 0px; /* Margen superior para separarlo del navbar/header del layout */
     margin-bottom: 25px; /* Margen inferior para que no quede pegado al footer */
     max-width: 1000px; /* Ajustado para un diseño de 3 columnas más espacioso */
     width: 95%; /* Asegura responsividad */

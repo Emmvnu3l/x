@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout_pie}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda - Sistema PIE</title>
+
+    <th:block layout:fragment="css-extra">
+        <style>
+            /* Estilos específicos para la página de Agenda */
+            .agenda-container {
+                background-color: #ffffff;
+                border: 1px solid #dee2e6;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                padding: 30px;
+                max-width: 900px; /* Consistente con otros apartados */
+                width: 95%; 
+                margin: auto; /* Centrar dentro del fragmento */
+                display: flex;
+                flex-direction: column;
+                min-height: 60vh; 
+                flex-grow: 1; 
+            }
+
+            .agenda-header {
+                margin-bottom: 30px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid #e9ecef;
+                text-align: center;
+            }
+
+            .agenda-header h2 {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 5px;
+            }
+
+            .agenda-sections {
+                display: flex;
+                flex-direction: column; /* Apila las secciones verticalmente */
+                gap: 15px; /* Espacio entre cada sección de la agenda */
+            }
+
+            .agenda-section-card {
+                background-color: #f8f9fa; /* Fondo claro para las tarjetas de sección */
+                border: 1px solid #e0e0e0;
+                border-radius: 5px;
+                padding: 20px;
+                text-align: center;
+                font-size: 1.2em;
+                font-weight: 500;
+                color: #333;
+                cursor: pointer; /* Indica que son clicables */
+                transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .agenda-section-card:hover {
+                background-color: #e2e6ea; /* Cambio de color al pasar el mouse */
+                border-color: #c0c4c8;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .agenda-section-card span {
+                font-weight: bold;
+                color: #007bff; /* Color para el número */
+            }
+
+            /* Estilos para el contenido de cada sub-apartado (oculto por defecto para la demo) */
+            .agenda-details-content {
+                margin-top: 20px;
+                padding: 20px;
+                border: 1px dashed #cccccc;
+                border-radius: 5px;
+                background-color: #ffffff;
+                display: none; /* Oculto por defecto, se mostraría con JS */
+            }
+            .agenda-details-content.active {
+                display: block; /* Muestra el contenido cuando está activo */
+            }
+            .agenda-details-content ul {
+                list-style: none;
+                padding: 0;
+            }
+            .agenda-details-content ul li {
+                background-color: #e6f7ff;
+                border: 1px solid #b3d9ff;
+                margin-bottom: 10px;
+                padding: 10px 15px;
+                border-radius: 4px;
+                color: #0056b3;
+            }
+        </style>
+    </th:block>
+</head>
+<body>
+
+    <div layout:fragment="content">
+        <div class="container agenda-container">
+            <div class="agenda-header">
+                <h2>Mi Agenda</h2>
+                <p>Gestiona tus citas y solicitudes aquí.</p>
+            </div>
+
+            <div class="agenda-sections">
+                <div class="agenda-section-card" data-target="proximas-citas-content">
+                    <span>(3)</span> Próximas Citas
+                </div>
+                <div id="proximas-citas-content" class="agenda-details-content">
+                    <h3>Detalle de Próximas Citas</h3>
+                    <ul>
+                        <li>Cita: 25 de Junio, 10:00 AM - Psicopedagogo Juan Pérez</li>
+                        <li>Cita: 01 de Julio, 11:30 AM - Fonoaudióloga Ana García</li>
+                        <li>Cita: 05 de Julio, 09:00 AM - Psicólogo Carlos Ruiz</li>
+                    </ul>
+                    <p>Aquí se mostrarán tus citas pendientes.</p>
+                </div>
+
+                <div class="agenda-section-card" data-target="historial-citas-content">
+                    <span>(15)</span> Historial Citas
+                </div>
+                <div id="historial-citas-content" class="agenda-details-content">
+                    <h3>Detalle de Historial de Citas</h3>
+                    <ul>
+                        <li>Cita: 20 de Mayo, 10:00 AM - Psicopedagogo Juan Pérez (Realizada)</li>
+                        <li>Cita: 10 de Abril, 15:00 PM - Psicólogo Laura Mena (Realizada)</li>
+                        <li>Cita: 01 de Marzo, 09:00 AM - Fonoaudióloga Ana García (Cancelada)</li>
+                    </ul>
+                    <p>Aquí se mostrarán tus citas pasadas.</p>
+                </div>
+
+                <div class="agenda-section-card" data-target="citas-solicitadas-content">
+                    <span>(5)</span> Citas solicitadas por alumnos
+                </div>
+                <div id="citas-solicitadas-content" class="agenda-details-content">
+                    <h3>Detalle de Citas Solicitadas por Alumnos</h3>
+                    <ul>
+                        <li>Solicitud de: Alumno A - Psicología (Pendiente)</li>
+                        <li>Solicitud de: Alumno B - Psicopedagogía (Revisada)</li>
+                        <li>Solicitud de: Alumno C - Fonoaudiología (Pendiente)</li>
+                    </ul>
+                    <p>Aquí se mostrarán las solicitudes de cita de los alumnos.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <th:block layout:fragment="js-extra">
+        <script>
+            /*<![CDATA[*/
+            document.addEventListener('DOMContentLoaded', function() {
+                const sectionCards = document.querySelectorAll('.agenda-section-card');
+                const allDetailContents = document.querySelectorAll('.agenda-details-content');
+
+                sectionCards.forEach(card => {
+                    card.addEventListener('click', function() {
+                        const targetId = this.dataset.target; // Obtiene el ID del contenido a mostrar
+                        const targetContent = document.getElementById(targetId);
+
+                        // Oculta todos los contenidos de detalle
+                        allDetailContents.forEach(content => {
+                            content.classList.remove('active');
+                        });
+
+                        // Muestra solo el contenido del apartado clicado
+                        if (targetContent) {
+                            targetContent.classList.add('active');
+                        }
+                    });
+                });
+            });
+            /*]]>*/
+        </script>
+    </th:block>
+
+</body>
+</html>

@@ -15,7 +15,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" th:href="@{/home}">
+            <a class="navbar-brand" th:href="@{/home_registrado}">
                 <img th:src="@{/images/logo.png}" alt="Logo Sistema PIE" class="logo-img"> 
             </a>
             
@@ -24,11 +24,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" th:href="@{/login_type_2}">Iniciar sesión</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Cerrar sesión</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <nav class="secondary-nav">
+        <div class="container d-flex justify-content-start">
+            <a class="nav-link" th:href="@{/chatbot/registered}">CHATBOT</a>
+            <a class="nav-link" th:href="@{/perfil}">MI PERFIL</a>
+            <a class="nav-link" th:href="@{/agenda}">AGENDA</a>
+            <a class="nav-link" th:href="@{/usuarios_pie}">EQUIPO PIE</a>
+            <a class="nav-link" th:href="@{/recursos}">RECURSOS DE APOYO</a>
+            <a class="nav-link" th:href="@{/preguntas_frecuentes}">PREGUNTAS FRECUENTES</a>
+        </div>
+    </nav> 
 
     <main class="container my-4">
         <div layout:fragment="content">

@@ -1,110 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/layout_pie}"> <head>
+      layout:decorate="~{layouts/layout_pie}">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preguntas Frecuentes - Sistema PIE</title>
 
     <th:block layout:fragment="css-extra">
-        <style>
-            /* Estilos específicos para la página de Preguntas Frecuentes */
-            .faq-container {
-                background-color: #ffffff;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-                padding: 25px; /* Reducido de 30px a 25px */
-                max-width: 850px; /* Reducido de 900px a 850px para una sensación más compacta */
-                width: 95%; 
-                margin: 20px auto;
-                display: flex;
-                flex-direction: column;
-            }
-
-            .faq-header {
-                text-align: center;
-                margin-bottom: 25px; /* Reducido de 30px a 25px */
-            }
-
-            .faq-header h1 {
-                color: #007bff;
-                font-size: 2.2em; /* Ligeramente más pequeño de 2.5em a 2.2em */
-                margin-bottom: 10px; /* Reducido de 15px a 10px */
-                font-weight: bold;
-            }
-
-            .faq-header p {
-                color: #555;
-                font-size: 1em; /* Ligeramente más pequeño de 1.1em a 1em */
-                line-height: 1.5; /* Ligeramente más ajustado de 1.6 a 1.5 */
-                max-width: 650px; /* Reducido de 700px a 650px */
-                margin: 0 auto;
-            }
-
-            /* Estilos para los elementos del acordeón (Bootstrap Collapse) */
-            .accordion-item {
-                margin-bottom: 10px; /* Reducido de 15px a 10px */
-                border: 1px solid #dee2e6;
-                border-radius: 5px;
-                overflow: hidden;
-            }
-
-            .accordion-header .accordion-button {
-                background-color: #e9ecef;
-                color: #333;
-                font-weight: bold;
-                font-size: 20px; /* Reducido de 1.1em a 1em */
-                padding: 12px 18px; /* Reducido de 15px 20px a 12px 18px */
-                text-align: left;
-                width: 100%;
-                border: none;
-                transition: background-color 0.2s ease-in-out;
-            }
-
-            .accordion-header .accordion-button:not(.collapsed) {
-                background-color: #007bff;
-                color: #ffffff;
-                box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
-            }
-
-            .accordion-body {
-                padding: 15px 18px; /* Reducido de 20px a 15px 18px */
-                border-top: 1px solid #dee2e6;
-                background-color: #f8f9fa;
-                color: #444;
-                line-height: 1.5; /* Ajustado de 1.6 a 1.5 */
-                font-size: 0.95em; /* Ligeramente más pequeño */
-            }
-
-            /* Flecha del acordeón */
-            .accordion-button::after {
-                filter: brightness(0.5);
-            }
-
-            .accordion-button:not(.collapsed)::after {
-                filter: brightness(100);
-            }
-
-            /* Media queries para responsividad */
-            @media (max-width: 768px) {
-                .faq-header h1 {
-                    font-size: 1.8em; /* Ajuste para móviles */
-                }
-                .accordion-header .accordion-button {
-                    font-size: 0.95em; /* Ajuste para móviles */
-                    padding: 10px 12px; /* Ajuste para móviles */
-                }
-                .accordion-body {
-                    padding: 12px 15px; /* Ajuste para móviles */
-                    font-size: 0.9em; /* Ajuste para móviles */
-                }
-                .faq-container {
-                    padding: 20px;
-                }
-            }
-        </style>
-    </th:block>
+        <link rel="stylesheet" th:href="@{/css/faq_style.css}">
+        </th:block>
 </head>
 <body>
 
@@ -121,11 +26,11 @@
 
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             ¿Qué es el Programa de Integración Escolar (PIE)?
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
                         <div class="accordion-body">
                             El PIE es un programa educativo que apoya a estudiantes con necesidades educativas especiales (NEE) para su inclusión y desarrollo integral en la escuela.
                         </div>
@@ -184,7 +89,7 @@
                     </div>
                 </div>
 
-                </div>
+            </div>
         </div>
     </div>
 

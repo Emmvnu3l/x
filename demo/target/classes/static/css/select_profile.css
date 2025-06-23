@@ -1,0 +1,61 @@
+/* src/main/resources/static/css/select_profile.css */
+
+/*
+   Nota importante sobre los estilos 'body':
+   Si tu 'layout_registrado.html' ya define estilos para 'body' (como el fondo,
+   el display flex para centrar contenido, o el min-height), estas reglas
+   aquí pueden causar conflictos o ser redundantes.
+
+   Si este es el caso y quieres que la página de selección de perfil
+   mantenga su fondo degradado y centrado independiente del layout,
+   te sugiero aplicar estos estilos a un div contenedor dentro del
+   fragmento 'content' en el HTML, en lugar de directamente al 'body'.
+
+   Para este ejemplo, los he dejado en 'body' como los tenías, pero
+   ten esto en cuenta si la apariencia no es la esperada.
+*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa toda la altura de la ventana */
+    background: linear-gradient(to right, #e2e8f0, #cbd5e0); /* El degradado de fondo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.select-profile-container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Ancho máximo para el contenedor de los cuadros */
+    width: 90%;
+}
+.profile-card {
+    cursor: pointer;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px; /* Espacio entre los cuadros */
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Quitar subrayado del enlace */
+    color: #333;
+    font-weight: bold;
+}
+.profile-card:hover {
+    border-color: #007bff; /* Color de Bootstrap primary al pasar el ratón */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+    transform: translateY(-5px);
+}
+.profile-card img {
+    width: 80px; /* Tamaño de los iconos */
+    height: 80px;
+    margin-bottom: 15px;
+}
+.profile-card .text-label {
+    margin-top: 10px;
+}
